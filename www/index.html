@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Cache-control" content="no-cache" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<title> Des moments &agrave; partager avec SeeIt! </title>
+
+<script src="http://www.appliseeit.com/mobile/hammer.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyB_oCNl3I6ov3plpNWChk-5T2QRb62DBOk&sensor=true" type="text/javascript"></script>
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+<link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/dojo/1.10.4/dojox/mobile/themes/blackberry/blackberry.css"></link>
+<link href="http://ajax.googleapis.com/ajax/libs/dojo/1.10.4/dojox/mobile/themes/common/domButtons/DomButtonRedBadge.css" rel="stylesheet"/>
+<link href="http://ajax.googleapis.com/ajax/libs/dojo/1.10.4/dojox/mobile/themes/common/domButtons.css" rel="stylesheet"/>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/dojo/1.10.4/dojox/mobile/deviceTheme.js" data-dojo-config="mblThemeFiles: ['base','Button']"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/dojo/1.10.4/dojox/mobile/deviceTheme.js" data-dojo-config="mblThemeFiles: ['base','IconContainer']"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/dojo/1.10.4/dojox/mobile/deviceTheme.js" data-dojo-config="mblThemeFiles: ['base','Accordion']"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/dojo/1.10.4/dojo/dojo.js"></script>
+<script type="text/javascript" src="js/dojox.js"></script>
+<link rel="stylesheet" href="css/camera.css" type="text/css">
+
+
+
+<script type="text/javascript">
+//INITIALIZE GOOGLE MAP
+
+window.onload = function() {nombrePhotos();setInterval(nombrePhotos, 10000);};
+</script>
+</head>
+<body style="visibility:hidden;">
+
+<!--------------------------------------------------------------ACCUEIL---------------------------------------------------------------->
+<div id='tabViewAccueil' data-dojo-type='dojox/mobile/ScrollableView' selected="true">
+<h1 data-dojo-type="dojox/mobile/Heading" data-dojo-props="fixed: 'top'">SeeIt !</h1><br>
+<div id="pull1" style="position: absolute;height: 65px; top: -65px;" align="center">
+<table><tr><td><img src="http://www.appliseeit.com/mobile/image/pull-to-refresh-arrow.png" align="center"></td><td><font color=grey size=2> Chargement en cours...</font></td></tr></table>
+</div>
+<div align="center"><font size='2' color='grey'>Les photos les plus r&eacute;centes</font></div>
+<div data-dojo-type="dojox/mobile/Container" style="background-color:#758DA7;height:170px;">
+<div data-dojo-type="dojox/mobile/PageIndicator" ></div>
+<div data-dojo-type="dojox/mobile/SwapView">
+<img src="http://www.appliseeit.com/public/images/icone-seeit.png" style="width:150px;display: block;margin-left: auto;margin-right: auto" />
+</div>
+<div data-dojo-type="dojox/mobile/SwapView">
+<div id='logphotoaccueil_1'></div>
+<img id='photoaccueil_1' src="" style="width:70%;margin-left: auto;margin-right: auto" onTouchstart="hammer_excecute(this.id);" onTouchend="effaceAideZoom();"/>
+</div>
+<div data-dojo-type="dojox/mobile/SwapView">
+<div id='logpubaccueil_1'></div>
+<img id='pubaccueil_1' src="http://www.appliseeit.com/mobile/image/imagePub.jpg" style="width:70%;margin-left: auto;margin-right: auto" onTouchstart='window.open("http://www.rockenseine.com","Rock en Seine","menubar=yes, status=yes, width=100%");'/>
+</div>
+<div data-dojo-type="dojox/mobile/SwapView">
+<div id='logphotoaccueil_2'></div>
+<img id='photoaccueil_2' src="" style="width:70%;margin-left: auto;margin-right: auto" onTouchstart="hammer_excecute(this.id);" onTouchend="effaceAideZoom();"/>
+</div>
+<div data-dojo-type="dojox/mobile/SwapView">
+<div id='logpubaccueil_2'></div>
+<img id='pubaccueil_2' src="http://www.appliseeit.com/mobile/image/marqueursRA.jpg" style="width:70%;margin-left: auto;margin-right: auto" onTouchstart='window.open("http://www.html5rocks.com/en/tutorials/webgl/jsartoolkit_webrtc/AR_mediaStream.html","Vid&eacute;o","menubar=yes, status=yes, width=100%");'/>
+</div>
+<div data-dojo-type="dojox/mobile/SwapView">
+<div id='logphotoaccueil_3'></div>
+<img id='photoaccueil_3' src="" style="width:70%;margin-left: auto;margin-right: auto" onTouchstart="hammer_excecute(this.id);" onTouchend="effaceAideZoom();"/>
+</div>
+</div>
+<div id="aideZoom" align="center"></div>
+<br><div id='titreAccueil' align="center"></div><br><br>
+<input type='hidden' id='nombrePhotosCache'>
+<div align="center"><font size=3 color=grey align='center'>Nombre de photos en ligne</font></div>
+<div id="gauge"></div>
+<ul data-dojo-type="dojox/mobile/RoundRectList">
+<li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="icon:'http://www.appliseeit.com/mobile/iconeAlbum.png', rightText:'Consulter', moveTo:'album'">Album</li>
+<li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="icon:'http://www.appliseeit.com/mobile/iconeApparareilphoto2.png', rightText:'Prendre', moveTo:'tournees'">Photos</li>
+</ul>
+<br>
+<div id='problemeReseau' align="center"></div>
+<center><table onTouchstart='window.open("http://www.appliseeit.com/mobile/facebookPartage.php","Facebook","menubar=yes, status=yes, width=100%");'><tr><td> <font size=2 color="grey">Partagez vos id&eacute;es sur http://www.appliseeit.com </font></td><td></td></tr></table></center>
+</div>
+
+<!--------------------------------------------------------------TOURNEES---------------------------------------------------------------->
+<div id="tournees" data-dojo-type="dojox/mobile/ScrollableView">
+<h1 id="hdgTournees" data-dojo-type="dojox/mobile/Heading" data-dojo-props="fixed: 'top', back:'Accueil', moveTo:'tabViewAccueil', onClick: function(){CacherCamera();}">Prendre les photos</h1>
+<div id="pull2" style="position: absolute;height: 65px; top: -65px;" align="center">
+<table align=center><tr><td><img src="http://www.appliseeit.com/mobile/image/pull-to-refresh-arrow.png"></td><td><font color=grey size=2> Chargement en cours...</font></td></tr></table>
+</div>
+<ul data-dojo-type="dojox/mobile/RoundRectList">
+<li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="icon:'http://www.appliseeit.com/mobile/cameras.jpg', iconPos:'0,0,35,35', onClick: function(e){affichPointsTournees('Animaux')}, moveTo:'#'">Animaux</li>
+<li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="icon:'http://www.appliseeit.com/mobile/cameras.jpg', iconPos:'0,35,35,35', onClick: function(e){affichPointsTournees('Architecture')}, moveTo:'#'">Architecture</li>
+<li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="icon:'http://www.appliseeit.com/mobile/cameras.jpg', iconPos:'0,70,35,35', onClick: function(e){affichPointsTournees('C&eacute;l&eacute;brit&eacute;s')}, moveTo:'#'">C&eacute;l&eacute;brit&eacute;s</li>
+<li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="icon:'http://www.appliseeit.com/mobile/cameras.jpg', iconPos:'0,105,35,35', onClick: function(e){affichPointsTournees('D&eacute;coration')}, moveTo:'#'">D&eacute;coration</li>
+<li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="icon:'http://www.appliseeit.com/mobile/cameras.jpg', iconPos:'0,140,35,35', onClick: function(e){affichPointsTournees('Ev&eacute;nements')}, moveTo:'#'">Ev&eacute;nements</li>
+<li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="icon:'http://www.appliseeit.com/mobile/cameras.jpg', iconPos:'35,0,35,35', onClick: function(e){affichPointsTournees('Faits divers')}, moveTo:'#'">Faits divers</li>
+<li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="icon:'http://www.appliseeit.com/mobile/cameras.jpg', iconPos:'35,35,35,35', onClick: function(e){affichPointsTournees('Gastronomie')}, moveTo:'#'">Gastronomie</li>
+<li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="icon:'http://www.appliseeit.com/mobile/cameras.jpg', iconPos:'35,70,35,35', onClick: function(e){affichPointsTournees('Insolite')}, moveTo:'#'">Insolite</li>
+<li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="icon:'http://www.appliseeit.com/mobile/cameras.jpg', iconPos:'35,105,35,35', onClick: function(e){affichPointsTournees('Jeux')}, moveTo:'#'">Jeux</li>
+<li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="icon:'http://www.appliseeit.com/mobile/cameras.jpg', iconPos:'35,140,35,35', onClick: function(e){affichPointsTournees('Loisirs')}, moveTo:'#'">Loisirs</li>
+<li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="icon:'http://www.appliseeit.com/mobile/cameras.jpg', iconPos:'0,0,35,35', onClick: function(e){affichPointsTournees('Nature')}, moveTo:'#'">Nature</li>
+<li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="icon:'http://www.appliseeit.com/mobile/cameras.jpg', iconPos:'0,35,35,35', onClick: function(e){affichPointsTournees('Paysage')}, moveTo:'#'">Paysage</li>
+<li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="icon:'http://www.appliseeit.com/mobile/cameras.jpg', iconPos:'0,70,35,35', onClick: function(e){affichPointsTournees('Restaurant')}, moveTo:'#'">Restaurant</li>
+<li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="icon:'http://www.appliseeit.com/mobile/cameras.jpg', iconPos:'0,105,35,35', onClick: function(e){affichPointsTournees('Selfie')}, moveTo:'#'">Selfie</li>
+<li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="icon:'http://www.appliseeit.com/mobile/cameras.jpg', iconPos:'0,140,35,35', onClick: function(e){affichPointsTournees('Tourisme')}, moveTo:'#'">Tourisme</li>
+<li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="icon:'http://www.appliseeit.com/mobile/cameras.jpg', iconPos:'35,0,35,35', onClick: function(e){affichPointsTournees('Voyages')}, moveTo:'#'">Voyages</li>
+</ul>
+</div>
+
+<!--------------------------------------------------------------ALBUMS---------------------------------------------------------------->
+<div id="album" data-dojo-type="dojox/mobile/ScrollableView">
+<h1 id="hdgAlbum" data-dojo-type="dojox/mobile/Heading" data-dojo-props="fixed: 'top', back:'Accueil', moveTo:'tabViewAccueil', onClick: function(){CacherCamera();}">Voir les allbums</h1>
+<div id="pull3" style="position: absolute;height: 65px; top: -65px;" align="center">
+<table><tr><td><img src="http://www.appliseeit.com/mobile/image/pull-to-refresh-arrow.png"></td><td><font color=grey size=2> Chargement en cours...</font></td></tr></table>
+</div>
+<ul data-dojo-type="dojox/mobile/RoundRectList">
+<li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="icon:'http://www.appliseeit.com/mobile/cameras.jpg', iconPos:'0,0,35,35', onClick: function(e){affichPointsAlbum('Animaux')}, moveTo:'#'">Animaux</li>
+<li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="icon:'http://www.appliseeit.com/mobile/cameras.jpg', iconPos:'0,35,35,35', onClick: function(e){affichPointsAlbum('Architecture')}, moveTo:'#'">Architecture</li>
+<li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="icon:'http://www.appliseeit.com/mobile/cameras.jpg', iconPos:'0,70,35,35', onClick: function(e){affichPointsAlbum('C&eacute;l&eacute;brit&eacute;s')}, moveTo:'#'">C&eacute;l&eacute;brit&eacute;s</li>
+<li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="icon:'http://www.appliseeit.com/mobile/cameras.jpg', iconPos:'0,105,35,35', onClick: function(e){affichPointsAlbum('D&eacute;coration')}, moveTo:'#'">D&eacute;coration</li>
+<li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="icon:'http://www.appliseeit.com/mobile/cameras.jpg', iconPos:'0,140,35,35', onClick: function(e){affichPointsAlbum('Ev&eacute;nements')}, moveTo:'#'">Ev&eacute;nements</li>
+<li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="icon:'http://www.appliseeit.com/mobile/cameras.jpg', iconPos:'35,0,35,35', onClick: function(e){affichPointsAlbum('Faits divers')}, moveTo:'#'">Faits divers</li>
+<li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="icon:'http://www.appliseeit.com/mobile/cameras.jpg', iconPos:'35,35,35,35', onClick: function(e){affichPointsAlbum('Gastronomie')}, moveTo:'#'">Gastronomie</li>
+<li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="icon:'http://www.appliseeit.com/mobile/cameras.jpg', iconPos:'35,70,35,35', onClick: function(e){affichPointsAlbum('Insolite')}, moveTo:'#'">Insolite</li>
+<li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="icon:'http://www.appliseeit.com/mobile/cameras.jpg', iconPos:'35,105,35,35', onClick: function(e){affichPointsAlbum('Jeux')}, moveTo:'#'">Jeux</li>
+<li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="icon:'http://www.appliseeit.com/mobile/cameras.jpg', iconPos:'35,140,35,35', onClick: function(e){affichPointsAlbum('Loisirs')}, moveTo:'#'">Loisirs</li>
+<li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="icon:'http://www.appliseeit.com/mobile/cameras.jpg', iconPos:'0,0,35,35', onClick: function(e){affichPointsAlbum('Nature')}, moveTo:'#'">Nature</li>
+<li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="icon:'http://www.appliseeit.com/mobile/cameras.jpg', iconPos:'0,35,35,35', onClick: function(e){affichPointsAlbum('Paysage')}, moveTo:'#'">Paysage</li>
+<li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="icon:'http://www.appliseeit.com/mobile/cameras.jpg', iconPos:'0,70,35,35', onClick: function(e){affichPointsAlbum('Restaurant')}, moveTo:'#'">Restaurant</li>
+<li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="icon:'http://www.appliseeit.com/mobile/cameras.jpg', iconPos:'0,105,35,35', onClick: function(e){affichPointsAlbum('Selfie')}, moveTo:'#'">Selfie</li>
+<li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="icon:'http://www.appliseeit.com/mobile/cameras.jpg', iconPos:'0,140,35,35', onClick: function(e){affichPointsAlbum('Tourisme')}, moveTo:'#'">Tourisme</li>
+<li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="icon:'http://www.appliseeit.com/mobile/cameras.jpg', iconPos:'35,0,35,35', onClick: function(e){affichPointsAlbum('Voyages')}, moveTo:'#'">Voyages</li>
+</ul>
+</div>
+
+<!--------------------------------------------------------------POINTS ALBUM---------------------------------------------------------------->
+<div id="affichPointsAlbums" data-dojo-type="dojox/mobile/ScrollableView">
+<div id="pull4" style="position: absolute;height: 65px; top: -65px;" align="center">
+<table><tr><td><img src="http://www.appliseeit.com/mobile/image/pull-to-refresh-arrow.png"></td><td><font color=grey size=2> Chargement en cours...</font></td></tr></table>
+</div>
+</div>
+
+<!--------------------------------------------------------------POINTS TOURNEE---------------------------------------------------------------->
+<div id="affichPointsTournee" data-dojo-type="dojox/mobile/ScrollableView">
+<div id="pull5" style="position: absolute;height: 65px; top: -65px;" align="center">
+<table><tr><td><img src="http://www.appliseeit.com/mobile/image/pull-to-refresh-arrow.png"></td><td><font color=grey size=2> Chargement en cours...</font></td></tr></table>>
+</div>
+</div>
+
+<!--------------------------------------------------------------OPTIONS---------------------------------------------------------------->
+<div id='tabViewOptions' data-dojo-type='dojox/mobile/ScrollableView' >
+<h1 data-dojo-type="dojox/mobile/Heading">Options</h1>
+<div id="pull6" style="position: absolute;height: 65px; top: -65px;" align="center">
+<table><tr><td><img src="http://www.appliseeit.com/mobile/image/pull-to-refresh-arrow.png"></td><td><font color=grey size=2> Chargement en cours...</font></td></tr></table>
+</div>
+<ul data-dojo-type="dojox/mobile/RoundRectList">
+<li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="rightText:'Appareil photo'"></li>
+<li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="">Orientation auto
+<div data-dojo-type="dojox/mobile/Switch" data-dojo-props="onStateChanged:function(newStateOrientation){changeCorrectOrientation(newStateOrientation)}" value="off"></div>
+<li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="">Blocage Position (Paysage)
+<div data-dojo-type="dojox/mobile/Switch" data-dojo-props="onStateChanged:function(){alert('Option Ã  venir dans les prochaines versions');}" value="off"></div>
+<li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="">Blocage Camera (Portrait)
+<div data-dojo-type="dojox/mobile/Switch" data-dojo-props="onStateChanged:function(newStatePosition){changePositionPortrait(newStatePosition)}" value="off"></div>
+<li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="">Camera Frontale
+<div data-dojo-type="dojox/mobile/Switch" data-dojo-props="onStateChanged:function(newStateCameraDirection){changeCameraDirection(newStateCameraDirection)}" value="off"></div>
+<li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="">Zoom Grand Angle
+<div data-dojo-type="dojox/mobile/Switch" data-dojo-props="onStateChanged:function(){alert('Option disponible dans les prochaines versions');}" value="off"></div>
+<li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="rightText:'Photo'"></li>
+<li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="">Enregistrer dans l'appareil
+<div data-dojo-type="dojox/mobile/Switch" data-dojo-props="onStateChanged:function(newStateEnregistrerPhoto){changeEnregistrerPhoto(newStateEnregistrerPhoto)}" value="off"></div>
+<li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="rightText:'Nofications'"></li>
+<li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="">Son
+<div data-dojo-type="dojox/mobile/Switch" data-dojo-props="onStateChanged:function(newStateAlertSon){changeAlertSon(newStateAlertSon)}" value="off" id="alertSon"></div>
+<li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="">Vibration
+<div data-dojo-type="dojox/mobile/Switch" data-dojo-props="onStateChanged:function(newStateVibration){changeAlertVibration(newStateVibration)}" value="off" id="alertVibration"></div>
+<li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="">Reconnaissance Vocale
+<div data-dojo-type="dojox/mobile/Switch" data-dojo-props="onStateChanged:function(){Voix();}" value="off"></div>
+</li>
+<div data-dojo-type="dojox/mobile/Accordion" >
+<div data-dojo-type="dojox/mobile/ContentPane" data-dojo-props='label:"Th&ecirc;mes"'>
+<li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="rightText:'Animaux'"></li>
+<li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="">Zoo de Vincennes
+<div data-dojo-type="dojox/mobile/Switch" data-dojo-props="onStateChanged:function(){alert('Option disponible dans les prochaines versions');}" value="off" ></div>
+<li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="rightText:'Architecture'"></li>
+<li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="">B&acirc;timents de Paris
+<div data-dojo-type="dojox/mobile/Switch" data-dojo-props="onStateChanged:function(){alert('Option disponible dans les prochaines versions');}" value="off" ></div>
+<li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="rightText:'Ev&eacute;nements'"></li>
+<li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="">Concerts
+<div data-dojo-type="dojox/mobile/Switch" data-dojo-props="onStateChanged:function(){alert('Option disponible dans les prochaines versions');}" value="off" ></div>
+<li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="rightText:'Jeux'"></li>
+<li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="">Trouver les monuments de Paris
+<div data-dojo-type="dojox/mobile/Switch" data-dojo-props="onStateChanged:function(){alert('Option disponible dans les prochaines versions');}" value="off" ></div>
+<li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="rightText:'Loisirs'"></li>
+<li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="">Le Parc de Sceaux
+<div data-dojo-type="dojox/mobile/Switch" data-dojo-props="onStateChanged:function(newStatLeParcdeSceaux){changeLeParcdeSceaux(newStatLeParcdeSceaux)}" value="off" ></div>
+<li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="rightText:'Nature'"></li>
+<li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="">L'Arboretum
+<div data-dojo-type="dojox/mobile/Switch" data-dojo-props="onStateChanged:function(newStatArboretum){changeArboretum(newStatArboretum)}" value="off" ></div>
+<li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="">Le Jardin des Plantes
+<div data-dojo-type="dojox/mobile/Switch" data-dojo-props="onStateChanged:function(newStatLeJardindesPlantes){changeLeJardindesPlantes(newStatLeJardindesPlantes)}" value="off" ></div>
+<li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="rightText:'Tourisme'"></li>
+<li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="">Infos monuments Paris
+<div data-dojo-type="dojox/mobile/Switch" data-dojo-props="onStateChanged:function(newStatInfosParis){changeInfosParis(newStatInfosParis)}" value="off" ></div>
+<input type='hidden' value='' id="affichInfoLoca">
+</div>
+</div>
+</ul>
+</div>
+
+<!--------------------------------------------------------------TODAY---------------------------------------------------------------->
+<div id="tabViewAlbum" data-dojo-type="dojox/mobile/ScrollableView" >
+<h1 data-dojo-type="dojox/mobile/Heading">Albums</h1>
+<div id="pull7" style="position: absolute;height: 65px; top: -65px;" align="center">
+<table><tr><td><img src="http://www.appliseeit.com/mobile/image/pull-to-refresh-arrow.png"></td><td><font color=grey size=2> Chargement en cours...</font></td></tr></table>
+</div>
+<ul id="infoBadges" data-dojo-type="dojox/mobile/IconContainer"></ul>
+<div data-dojo-type="dojox/mobile/RoundRect" style="background-color:white;height:60px;vertical-align:middle;">
+<div id="messageAlerte"></div>
+</div>
+<div data-dojo-type="dojox/mobile/RoundRect" style="background-color:#EBF4FA;height:40px;vertical-align:middle;">
+<div id="messageNouvelAlbum"></div>
+</div>
+</div>
+
+<!--------------------------------------------------------------AJOUTER---------------------------------------------------------------->
+<div id="tabViewAjouter" data-dojo-type="dojox/mobile/ScrollableView" >
+<h1 data-dojo-type="dojox/mobile/Heading">Ajouter</h1>
+<div id="pull8" style="position: absolute;height: 65px; top: -65px;" align="center">
+<table><tr><td><img src="http://www.appliseeit.com/mobile/image/pull-to-refresh-arrow.png"></td><td><font color=grey size=2> Chargement en cours...</font></td></tr></table>
+</div>
+<div id="texteAjouter" align="center"></div><br><br>
+<font color='grey' size='3'>Quel th&ecirc;me choississez-vous ?</font>
+<select id="nouvelAlbum">
+<option value='' selected disabled>
+<option value='Animaux'>Animaux
+<option value='Architecture'>Architecture
+<option value='C&eacute;l&eacute;brit&eacute;s'>C&eacute;l&eacute;brit&eacute;s
+<option value='D&eacute;coration'>D&eacute;coration
+<option value='Ev&eacute;nements'>Ev&eacute;nements
+<option value='Faits divers'>Faits divers
+<option value='Gastronomie'>Gastronomie
+<option value='Insolite'>Insolite
+<option value='Jeux'>Jeux
+<option value='Loisirs'>Loisirs
+<option value='Nature'>Nature
+<option value='Paysage'>Paysage
+<option value='Restaurant'>Restaurant
+<option value='Selfie'>Selfie
+<option value='Tourisme'>Tourisme
+<option value='Voyages'>Voyages
+</select>
+<font color='grey' size='3'>Comment s'appelle votre album ?</font><input type="text" id="nouvelElement">
+<font color='grey' size='3'>Quel est votre pseudo ?</font><input type="text" id="nouveauPseudo">
+<button onclick='creerAlbum()'>Ajouter</button>
+<br>
+<div id="resultatCreerAlbum"></div><br><br>
+<div id='afficherTourneeApresCreer' style='display:none'><button onclick='affichPointsTournees(document.getElementById("nouvelAlbum").value);'>Afficher</button></div>
+</div>
+
+
+<!--------------------------------------------------------------INFOS---------------------------------------------------------------->
+<div id="tabViewUpdates" data-dojo-type="dojox/mobile/ScrollableView" >
+<h1 data-dojo-type="dojox/mobile/Heading">Infos</h1>
+<div id="pull10" style="position: absolute;height: 65px; top: -65px; align="center"">
+<table ><tr><td><img src="http://www.appliseeit.com/mobile/image/pull-to-refresh-arrow.png"></td><td><font color=grey size=2> Chargement en cours...</font></td></tr></table>
+</div>
+<ul id="intro" data-dojo-type="dojox/mobile/RoundRectList">
+<div id='IntroInfos' align='center'></div>
+</ul>
+<div data-dojo-type="dojox/mobile/Accordion" >
+<div data-dojo-type="dojox/mobile/ContentPane" data-dojo-props='label:"Aide"'>
+<div id='AideInfos' align='left'></div>
+</div>
+<div data-dojo-type="dojox/mobile/ContentPane" data-dojo-props='label:"A venir"'>
+<div id='AvenirInfos' align='left'></div>
+</div>
+<div data-dojo-type="dojox/mobile/ContentPane" data-dojo-props='label:"Pourquoi faire ?"'>
+<div id='PourquoifaireInfos' align='left'></div>
+</div>
+<div data-dojo-type="dojox/mobile/ContentPane" data-dojo-props='label:"Nous contacter ?"' id='NouscontacterInfos'>
+<div align='left'></div>
+</div>
+</div>
+</div>
+
+<!--------------------------------------------------------------PIC---------------------------------------------------------------->
+<div id='cadreCamera' style="display:none;position: absolute;height: 65px; top: 65px;" data-dojo-type="dojox/mobile/ScrollableView" >
+<div id='affichLocalisation'></div>
+<div data-role="content"><a href="#" data-role="button" id="open_camera_button" style="display: inline-block;width:100px;margin:10px"><img src='http://www.appliseeit.com/mobile/iconeApparareilphoto2.png' height='50px'></a>
+<a href="#" data-role="button" style="display: inline-block;width:100px;margin:10px" onTouchstart='window.open("http://www.appliseeit.com/mobile/google_map.php","","menubar=no, status=no, toolbar=no, location=no, width=100%");'><img src='http://www.appliseeit.com/mobile/image/google_map.png'></a></div>
+<div id='affichFormattedAddress'></div>
+<div id="log"></div>
+<img id="pic" src="" width="300" style="display: none;" onTouchstart="hammer_excecute(this.id);" onTouchend="effaceAideZoom();"/>
+</div>
+
+<!--------------------------------------------------------------BOTTOM---------------------------------------------------------------->
+<ul id="demoTabBar" data-dojo-type="dojox/mobile/TabBar" data-dojo-props='iconBase:"http://www.distriweb.mobi/mgp/paris/mobile/tab-icons.png",fixed:"bottom"'>
+<li data-dojo-type="dojox/mobile/TabBarButton" data-dojo-props='iconPos1:"0,0,29,29", iconPos2:"29,0,29,29", moveTo:"tabViewAccueil", selected:true, onClick:function(){CacherCamera();RafraichirAccueil();nombrePhotos()}'>Accueil</li>
+<li data-dojo-type="dojox/mobile/TabBarButton" data-dojo-props='iconPos1:"0,87,29,29", iconPos2:"29,87,29,29", moveTo:"tabViewAlbum", onClick:function(){CacherCamera();AffichBadges()}'>Today</li>
+<li data-dojo-type="dojox/mobile/TabBarButton" data-dojo-props='iconPos1:"0,58,29,29", iconPos2:"29,58,29,29", moveTo:"tabViewAjouter", onClick:function(){CacherCamera()}'>Ajouter</li>
+<li data-dojo-type="dojox/mobile/TabBarButton" data-dojo-props='iconPos1:"0,29,29,29", iconPos2:"29,29,29,29", moveTo:"tabViewOptions", onClick:function(){CacherCamera()}'>Options</li>
+<li data-dojo-type="dojox/mobile/TabBarButton" data-dojo-props='iconPos1:"0,116,29,29", iconPos2:"29,116,29,29", moveTo:"tabViewUpdates", onClick:function(){CacherCamera()}'>Infos</li>
+</ul>
+
+<script src="http://www.appliseeit.com/mobile/hammer_fonctions.js"></script>
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+</body>
+</html>

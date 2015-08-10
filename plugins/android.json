@@ -1,0 +1,131 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {
+            "res/xml/config.xml": {
+                "parents": {
+                    "/*": [
+                        {
+                            "xml": "<feature name=\"Whitelist\"><param name=\"android-package\" value=\"org.apache.cordova.whitelist.WhitelistPlugin\" /><param name=\"onload\" value=\"true\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"Compass\"><param name=\"android-package\" value=\"org.apache.cordova.deviceorientation.CompassListener\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"Camera\"><param name=\"android-package\" value=\"org.apache.cordova.camera.CameraLauncher\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"NetworkStatus\"><param name=\"android-package\" value=\"org.apache.cordova.networkinformation.NetworkManager\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"Accelerometer\"><param name=\"android-package\" value=\"org.apache.cordova.devicemotion.AccelListener\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"InAppBrowser\"><param name=\"android-package\" value=\"org.apache.cordova.inappbrowser.InAppBrowser\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"File\"><param name=\"android-package\" value=\"org.apache.cordova.file.FileUtils\" /><param name=\"onload\" value=\"true\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"FileTransfer\"><param name=\"android-package\" value=\"org.apache.cordova.filetransfer.FileTransfer\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"WebSocket\"><param name=\"android-package\" value=\"com.knowledgecode.cordova.websocket.WebSocket\" /></feature>",
+                            "count": 1
+                        }
+                    ],
+                    "/widget": [
+                        {
+                            "xml": "<feature name=\"ChromeSystemNetwork\"><param name=\"android-package\" value=\"org.chromium.ChromeSystemNetwork\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"ChromeSocket\"><param name=\"android-package\" value=\"org.chromium.ChromeSocket\" /></feature>",
+                            "count": 1
+                        }
+                    ]
+                }
+            },
+            "AndroidManifest.xml": {
+                "parents": {
+                    "/*": [
+                        {
+                            "xml": "<uses-permission android:name=\"android.permission.ACCESS_COARSE_LOCATION\" />",
+                            "count": 2
+                        },
+                        {
+                            "xml": "<uses-permission android:name=\"android.permission.ACCESS_FINE_LOCATION\" />",
+                            "count": 2
+                        },
+                        {
+                            "xml": "<uses-permission android:name=\"android.permission.WRITE_EXTERNAL_STORAGE\" />",
+                            "count": 3
+                        },
+                        {
+                            "xml": "<uses-permission android:name=\"android.permission.ACCESS_NETWORK_STATE\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<uses-permission android:name=\"android.permission.INTERNET\" />",
+                            "count": 1
+                        }
+                    ]
+                }
+            }
+        }
+    },
+    "installed_plugins": {
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "com.example.hello"
+        },
+        "cordova-plugin-geolocation": {
+            "PACKAGE_NAME": "com.example.hello"
+        },
+        "cordova-plugin-device-orientation": {
+            "PACKAGE_NAME": "com.example.hello"
+        },
+        "cordova-plugin-camera": {
+            "PACKAGE_NAME": "com.example.hello"
+        },
+        "cordova-plugin-network-information": {
+            "PACKAGE_NAME": "com.example.hello"
+        },
+        "cordova-plugin-device-motion": {
+            "PACKAGE_NAME": "com.example.hello"
+        },
+        "cordova-plugin-inappbrowser": {
+            "PACKAGE_NAME": "com.example.hello"
+        },
+        "cordova-plugin-file": {
+            "PACKAGE_NAME": "com.example.hello"
+        },
+        "cordova-plugin-file-transfer": {
+            "PACKAGE_NAME": "com.example.hello"
+        },
+        "cordova-plugin-websocket": {
+            "PACKAGE_NAME": "com.example.hello"
+        },
+        "cordova-plugin-chrome-apps-socket": {
+            "PACKAGE_NAME": "com.example.hello"
+        }
+    },
+    "dependent_plugins": {
+        "cordova-plugin-chrome-apps-common": {
+            "PACKAGE_NAME": "com.example.hello"
+        },
+        "cordova-plugin-chrome-apps-system-network": {
+            "PACKAGE_NAME": "com.example.hello"
+        }
+    }
+}
