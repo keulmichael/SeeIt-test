@@ -10,7 +10,7 @@ var app = {
 
     onDeviceReady: function() {
         app.receivedEvent('deviceready');
-
+alert('deviceready');
 var ws = new WebSocket('ws://echo.websocket.org');
 
     ws.onopen = function () {
