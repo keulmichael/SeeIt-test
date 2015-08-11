@@ -34,7 +34,6 @@ this.popoverOptions = new CameraPopoverOptions(100, 100, 100, 100, Camera.Popove
 var settings;
 	
 	
-ElementById("problemeReseau").innerHTML="<font color='red' size='2'>Absence de r&eacute;seau. Veuillez fermer l'application et l'ouvrir &agrave; nouveau lorsque l'appareil sera connect&eacute;.</font>";}
 
     
     settings = new Settings();
@@ -47,21 +46,12 @@ ElementById("problemeReseau").innerHTML="<font color='red' size='2'>Absence de r
     document.addEventListener("online", onOnline, false);
     document.addEventListener("offline", onOffline, false)
 	
-var geocoder;
-geocoder = new google.maps.Geocoder();
+
 
 ///////////////////////////////////////////////////////////////////////////////////////	
 function onCapture(e) { 
-if (settings.positionPaysage==false)
-	{
-	navigator.accelerometer.getCurrentAcceleration(accelerometerSuccessPortrait, accelerometerErrorPortrait);
 
-	function accelerometerSuccessPortrait(acceleration) {
-if (acceleration.x>1 || acceleration.x<-1 && acceleration.y<9 && acceleration.z>1 || acceleration.z<-1 ){
-    alert("Veuillez tenir l\'appareil en mode portrait.\nLe blocage en mode portrait peut être activé dans les options.");
-		}
 
-	else {
     var callerId = getTargetId(e, "a");
     
     switch (callerId) {
@@ -93,63 +83,12 @@ if (acceleration.x>1 || acceleration.x<-1 && acceleration.y<9 && acceleration.z>
                                                                   });
 
 
+
 }
-}
-function accelerometerErrorPortrait() {
-    alert('Veuillez activer l\'accéléromètre');
-};								  
-}
-
-else
-{
-navigator.accelerometer.getCurrentAcceleration(accelerometerSuccessPaysage, accelerometerErrorPaysage);
-
-function accelerometerSuccessPaysage(acceleration) {
-if (acceleration.x<9 || acceleration.x>-9 && acceleration.y<0 || acceleration.y>1 && acceleration.z<0 || acceleration.y>1){
-    alert("Veuillez tenir l'appareil en mode paysage.\nLe blocage en mode portrait peut être activé dans les options.");
-		}
-
-	else {
-    var callerId = getTargetId(e, "a");
-    
-    switch (callerId) {
-        case "open_camera_button":
-            settings.sourceType = Camera.PictureSourceType.CAMERA;
-            break;
-        case "open_lib_button":
-            settings.sourceType = Camera.PictureSourceType.PHOTOLIBRARY;
-            break;
-        case "open_alb_button":
-            settings.sourceType = Camera.PictureSourceType.SAVEDPHOTOALBUM;
-            break;
-        default:
-            return;
-    }
-    
-    navigator.camera.getPicture(onCaptureSuccess, onCaptureError, { quality : settings.quality,
-                                                                    destinationType : settings.destinationType,
-                                                                    sourceType : settings.sourceType,
-                                                                    allowEdit : settings.allowEdit,
-                                                                    encodingType : settings.encodingType,
-                                                                    targetWidth : settings.targetWidth,
-                                                                    targetHeight : settings.targetHeight,
-                                                                    mediaType: settings.mediaType,
-                                                                    saveToPhotoAlbum : settings.saveToPhotoAlbum,
-                                                                    correctOrientation: settings.correctOrientation,
-								    cameraDirection: settings.cameraDirection,
-                                                                    popoverOptions : settings.popoverOptions
-                                                                  });
+			  
 
 
-		}
-	};
 
-
-function accelerometerErrorPaysage() {
-    alert('Veuillez activer l\'acc&eacute;l&eacute;rom&egrave;tre');
-};
-		
-}
 }
 
 	
