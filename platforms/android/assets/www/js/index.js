@@ -1,12 +1,5 @@
 
 
-        document.addEventListener('deviceready', onDeviceReady, false);
-
-
-    onDeviceReady: function() {
-
-alert('deviceready');
-
     
 function Settings() {
 if ((typeof Camera !== "undefined")) {
@@ -28,6 +21,8 @@ this.popoverOptions = new CameraPopoverOptions(100, 100, 100, 100, Camera.Popove
 
 var settings;
 	
+
+function onLoadCamera() {alert('onloadCamera');
 	
 	var networkState = navigator.network.connection.type;
 
@@ -38,24 +33,31 @@ var settings;
         states[Connection.CELL_2G] = 'Connexion 2G';
         states[Connection.CELL_3G] = 'Connexion 3G';
         states[Connection.CELL_4G] = 'Connexion 4G';
-        states[Connection.NONE] = 'Pas de connexion r&eacute;seau';
+        states[Connection.NONE] = 'Pas de connexion réseau';
 
-if (states[networkState] == 'Pas de connexion r&eacute;seau') {
-        document.getElementById("problemeReseau").innerHTML="<font color='red' size='2'>Absence de r&eacute;seau. Veuillez fermer l'application et l'ouvrir &agrave; nouveau lorsque l'appareil sera connect&eacute;.</font>";}
+if (states[networkState] == 'Pas de connexion réseau') {
+        document.getElementById("problemeReseau").innerHTML="<font color='red' size='2'>Absence de réseau. Veuillez fermer l'application et l'ouvrir à nouveau.</font>";}
 
+    document.addEventListener("deviceready", onDeviceReady, false);
     
     settings = new Settings();
-		
+    
+var geocoder;
+geocoder = new google.maps.Geocoder();
+}
 
+function onDeviceReady() {
+    
+    
     $("#open_camera_button").bind ("click", onCapture);
     $("#open_lib_button").bind ("click", onCapture);
     $("#open_alb_button").bind ("click", onCapture);
     
     document.addEventListener("online", onOnline, false);
     document.addEventListener("offline", onOffline, false)
+}
 	
-var geocoder;
-geocoder = new google.maps.Geocoder();
+
 
 ///////////////////////////////////////////////////////////////////////////////////////	
 function onCapture(e) { 
