@@ -22,14 +22,18 @@ function onLoadCamera() {alert('onloadCamera');
 
 settings = new Settings();
 
+document.addEventListener("deviceready", onDeviceReady, false);
+}
+
+function onDeviceReady() {
+    
+    
     $("#open_camera_button").bind ("click", onCapture);
     $("#open_lib_button").bind ("click", onCapture);
     $("#open_alb_button").bind ("click", onCapture);
     
 
 }
-
-
 
 function onCapture(e) { 
     
