@@ -1,4 +1,14 @@
 function onLoadCamera() {
+	navigator.geolocation.getCurrentPosition(geolocationSuccess, geolocationError);
+	
+	function geolocationSuccess(position) {alert(position.coords.latitude);}
+	
+	function geolocationError(error) {}
+
+navigator.camera.getPicture(onCaptureSuccess, onCaptureError, { quality : 100 });
+
+function onCaptureSuccess(imageData) {alert('capture');}
+function onCaptureError(message) {alert(message);}
 
     document.addEventListener("deviceready", onDeviceReady, false);
     
