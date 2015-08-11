@@ -1,27 +1,19 @@
- 
+var app = {
 
-function onLoadCamera() {
-	navigator.geolocation.getCurrentPosition(geolocationSuccess, geolocationError);
-	
-	function geolocationSuccess(position) {alert(position.coords.latitude);}
-	
-	function geolocationError(error) {}
+    initialize: function() {
+        this.bindEvents();
+    },
+    
+    bindEvents: function() {
+        document.addEventListener('deviceready', this.onDeviceReady, false);
+    },
 
-document.addEventListener("deviceready", onDeviceReady, false);
-function  onDeviceReady{
-navigator.camera.getPicture(onCaptureSuccess, onCaptureError, { quality : 100 });
+    onDeviceReady: function() {
+        app.receivedEvent('deviceready');
 
-function onCaptureSuccess(imageData) {alert('capture');}
-function onCaptureError(message) {alert(message);}
-}
 
     
-
-     var settings;
-  
-    settings = new Settings();
-    
-    function Settings() {
+function Settings() {
 if ((typeof Camera !== "undefined")) {
 this.destinationType = Camera.DestinationType.FILE_URI; // cameraOptions: destinationType
 this.sourceType = Camera.PictureSourceType.CAMERA; 
@@ -39,21 +31,24 @@ this.saveToPhotoAlbum = false; // cameraOptions: saveToPhotoAlbum
 this.popoverOptions = new CameraPopoverOptions(100, 100, 100, 100, Camera.PopoverArrowDirection.ARROW_DOWN); // cameraOptions: popoverOptions
 }
 
-}
+var settings;
+	
+	
+ElementById("problemeReseau").innerHTML="<font color='red' size='2'>Absence de r&eacute;seau. Veuillez fermer l'application et l'ouvrir &agrave; nouveau lorsque l'appareil sera connect&eacute;.</font>";}
 
+    
+    settings = new Settings();
+		
 
-    
-function onDeviceReadyy() {alert('onDeviceReady');
-    
-    
     $("#open_camera_button").bind ("click", onCapture);
     $("#open_lib_button").bind ("click", onCapture);
     $("#open_alb_button").bind ("click", onCapture);
     
-
-}
+    document.addEventListener("online", onOnline, false);
+    document.addEventListener("offline", onOffline, false)
 	
-
+var geocoder;
+geocoder = new google.maps.Geocoder();
 
 ///////////////////////////////////////////////////////////////////////////////////////	
 function onCapture(e) { 
@@ -83,7 +78,19 @@ if (acceleration.x>1 || acceleration.x<-1 && acceleration.y<9 && acceleration.z>
             return;
     }
     
-    navigator.camera.getPicture(onCaptureSuccess, onCaptureError, { quality : 100 });
+    navigator.camera.getPicture(onCaptureSuccess, onCaptureError, { quality : settings.quality,
+                                                                    destinationType : settings.destinationType,
+                                                                    sourceType : settings.sourceType,
+                                                                    allowEdit : settings.allowEdit,
+                                                                    encodingType : settings.encodingType,
+                                                                    targetWidth : settings.targetWidth,
+                                                                    targetHeight : settings.targetHeight,
+                                                                    mediaType: settings.mediaType,
+                                                                    saveToPhotoAlbum : settings.saveToPhotoAlbum,
+                                                                    correctOrientation: settings.correctOrientation,
+								    cameraDirection: settings.cameraDirection,
+                                                                    popoverOptions : settings.popoverOptions
+                                                                  });
 
 
 }
@@ -119,7 +126,19 @@ if (acceleration.x<9 || acceleration.x>-9 && acceleration.y<0 || acceleration.y>
             return;
     }
     
-    navigator.camera.getPicture(onCaptureSuccess, onCaptureError, { quality : 100});
+    navigator.camera.getPicture(onCaptureSuccess, onCaptureError, { quality : settings.quality,
+                                                                    destinationType : settings.destinationType,
+                                                                    sourceType : settings.sourceType,
+                                                                    allowEdit : settings.allowEdit,
+                                                                    encodingType : settings.encodingType,
+                                                                    targetWidth : settings.targetWidth,
+                                                                    targetHeight : settings.targetHeight,
+                                                                    mediaType: settings.mediaType,
+                                                                    saveToPhotoAlbum : settings.saveToPhotoAlbum,
+                                                                    correctOrientation: settings.correctOrientation,
+								    cameraDirection: settings.cameraDirection,
+                                                                    popoverOptions : settings.popoverOptions
+                                                                  });
 
 
 		}
@@ -229,5 +248,10 @@ function getElement(element) {
     
     return element;
 }
+    },
 
 
+  receivedEvent: function(id) {}
+};
+
+app.initialize();
