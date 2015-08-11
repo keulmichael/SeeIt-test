@@ -11,25 +11,7 @@ var app = {
     onDeviceReady: function() {
         app.receivedEvent('deviceready');
 alert('deviceready');
-var ws = new WebSocket('ws://echo.websocket.org');
 
-    ws.onopen = function () {
-        console.log('open');
-        this.send('hello');         // transmit "hello" after connecting
-    };
-
-    ws.onmessage = function (event) {
-        console.log(event.data);    alert(event.data);    // will be "hello"
-        this.close();
-    };
-
-    ws.onerror = function () {
-        console.log('error occurred!');
-    };
-
-    ws.onclose = function (event) {
-        console.log('close code=' + event.code);
-    };
     
 function Settings() {
 if ((typeof Camera !== "undefined")) {
