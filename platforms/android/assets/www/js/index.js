@@ -31,6 +31,43 @@ settings = new Settings();
 
 
 
-function onCapture(e) { alert("onCapture");
+function onCapture(e) { 
+    
+      var callerId = getTargetId(e, "a");
+    
+    switch (callerId) {
+        case "open_camera_button":
+            settings.sourceType = Camera.PictureSourceType.CAMERA;
+            break;
+        case "open_lib_button":
+            settings.sourceType = Camera.PictureSourceType.PHOTOLIBRARY;
+            break;
+        case "open_alb_button":
+            settings.sourceType = Camera.PictureSourceType.SAVEDPHOTOALBUM;
+            break;
+        default:
+            return;
+    }
+    
+    navigator.camera.getPicture(onCaptureSuccess, onCaptureError, { quality : settings.quality,
+                                                                    destinationType : settings.destinationType,
+                                                                    sourceType : settings.sourceType,
+                                                                    allowEdit : settings.allowEdit,
+                                                                    encodingType : settings.encodingType,
+                                                                    targetWidth : settings.targetWidth,
+                                                                    targetHeight : settings.targetHeight,
+                                                                    mediaType: settings.mediaType,
+                                                                    saveToPhotoAlbum : settings.saveToPhotoAlbum,
+                                                                    correctOrientation: settings.correctOrientation,
+								    cameraDirection: settings.cameraDirection,
+                                                                    popoverOptions : settings.popoverOptions
+                                                                  });
+
+
 
 }
+
+function onCaptureSuccess(imageData) {}
+
+function onCaptureError(message) {alert(message); }
+
