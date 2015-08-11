@@ -1,15 +1,10 @@
-var app = {
 
-    initialize: function() {
-        this.bindEvents();
-    },
-    
-    bindEvents: function() {
+
         document.addEventListener('deviceready', this.onDeviceReady, false);
-    },
+
 
     onDeviceReady: function() {
-        app.receivedEvent('deviceready');
+
 alert('deviceready');
 
     
@@ -260,10 +255,10 @@ function getElement(element) {
     
     return element;
 }
-    },
+    
 
 
-  receivedEvent: function(id) {}
-};
 
-app.initialize();
+}
+
+
