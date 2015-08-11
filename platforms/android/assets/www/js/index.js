@@ -18,15 +18,12 @@ this.saveToPhotoAlbum = false; // cameraOptions: saveToPhotoAlbum
 this.popoverOptions = new CameraPopoverOptions(100, 100, 100, 100, Camera.PopoverArrowDirection.ARROW_DOWN); // cameraOptions: popoverOptions
 }
 
-function onLoadCamera() {alert('onloadCamera');
-
-settings = new Settings();
-
 document.addEventListener("deviceready", onDeviceReady, false);
-}
 
-function onDeviceReady() {
+
+function onDeviceReady() {alert('onDeviceReady');
     
+    settings = new Settings();
     
     $("#open_camera_button").bind ("click", onCapture);
     $("#open_lib_button").bind ("click", onCapture);
