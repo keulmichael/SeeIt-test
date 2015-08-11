@@ -33,21 +33,7 @@ settings = new Settings();
 
 function onCapture(e) { 
     
-      var callerId = getTargetId(e, "a");
-    
-    switch (callerId) {
-        case "open_camera_button":
-            settings.sourceType = Camera.PictureSourceType.CAMERA;
-            break;
-        case "open_lib_button":
-            settings.sourceType = Camera.PictureSourceType.PHOTOLIBRARY;
-            break;
-        case "open_alb_button":
-            settings.sourceType = Camera.PictureSourceType.SAVEDPHOTOALBUM;
-            break;
-        default:
-            return;
-    }
+alert('onCapture');
     
     navigator.camera.getPicture(onCaptureSuccess, onCaptureError, { quality : settings.quality,
                                                                     destinationType : settings.destinationType,
