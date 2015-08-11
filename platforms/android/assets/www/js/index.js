@@ -89,7 +89,7 @@ function onCapture(e) {
 
 
 
-}
+
 
 	
 ///////////////////////////////////////////////////////////////////////////////////////
@@ -186,8 +186,8 @@ function getElement(element) {
     }
     
     return element;
-}
-    },
+    }
+},
 
 
   receivedEvent: function(id) {}
