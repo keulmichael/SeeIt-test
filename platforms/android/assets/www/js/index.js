@@ -20,20 +20,16 @@ this.popoverOptions = new CameraPopoverOptions(100, 100, 100, 100, Camera.Popove
 
 function onLoadCamera() {alert('onloadCamera');
 
-document.addEventListener("deviceready", onDeviceReady, false);
-
-}
-
-function onDeviceReady() {
-    
-    
     $("#open_camera_button").bind ("click", onCapture);
     $("#open_lib_button").bind ("click", onCapture);
     $("#open_alb_button").bind ("click", onCapture);
     
     document.addEventListener("online", onOnline, false);
     document.addEventListener("offline", onOffline, false)
+
 }
+
+
 
 function onCapture(e) { alert("onCapture");
 
