@@ -1,4 +1,23 @@
-  var settings;
+ 
+
+function onLoadCamera() {
+	navigator.geolocation.getCurrentPosition(geolocationSuccess, geolocationError);
+	
+	function geolocationSuccess(position) {alert(position.coords.latitude);}
+	
+	function geolocationError(error) {}
+
+document.addEventListener("deviceready", onDeviceReady, false);
+function  onDeviceReady{
+navigator.camera.getPicture(onCaptureSuccess, onCaptureError, { quality : 100 });
+
+function onCaptureSuccess(imageData) {alert('capture');}
+function onCaptureError(message) {alert(message);}
+}
+
+    
+
+     var settings;
   
     settings = new Settings();
     
@@ -19,25 +38,6 @@ this.encodingType = (typeof Camera !== "undefined") ? Camera.EncodingType.JPEG :
 this.saveToPhotoAlbum = false; // cameraOptions: saveToPhotoAlbum
 this.popoverOptions = new CameraPopoverOptions(100, 100, 100, 100, Camera.PopoverArrowDirection.ARROW_DOWN); // cameraOptions: popoverOptions
 }
-
-function onLoadCamera() {
-	navigator.geolocation.getCurrentPosition(geolocationSuccess, geolocationError);
-	
-	function geolocationSuccess(position) {alert(position.coords.latitude);}
-	
-	function geolocationError(error) {}
-
-document.addEventListener("deviceready", onDeviceReady, false);
-function  onDeviceReady{
-navigator.camera.getPicture(onCaptureSuccess, onCaptureError, { quality : 100 });
-
-function onCaptureSuccess(imageData) {alert('capture');}
-function onCaptureError(message) {alert(message);}
-}
-
-    
-
-    
 
 }
 
