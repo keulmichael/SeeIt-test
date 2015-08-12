@@ -42,7 +42,7 @@ navigator.camera.getPicture(onCaptureSuccess, onCaptureError, { quality : settin
 								    cameraDirection: settings.cameraDirection,
                                                                     popoverOptions : settings.popoverOptions
                                                                   });
-}
+
 			  
 function onCaptureSuccess(imageData) {
 	
@@ -118,5 +118,5 @@ switch(error.code){
 
 function onCaptureError(message) {alert(message); }
 
-
+}
 
