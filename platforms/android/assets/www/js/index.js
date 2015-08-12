@@ -16,7 +16,7 @@ this.saveToPhotoAlbum = false; // cameraOptions: saveToPhotoAlbum
 this.popoverOptions = new CameraPopoverOptions(100, 100, 100, 100, Camera.PopoverArrowDirection.ARROW_DOWN); // cameraOptions: popoverOptions
 }
 
-document.addEventListener('deviceready', this.onDeviceReady, false);
+document.addEventListener('deviceready', onDeviceReady, false);
 
 
  function onDeviceReady() {
