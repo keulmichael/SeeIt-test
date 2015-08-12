@@ -1,18 +1,3 @@
-var app = {
-
-    initialize: function() {
-        this.bindEvents();
-    },
-    
-    bindEvents: function() {
-        document.addEventListener('deviceready', this.onDeviceReady, false);
-    },
-
-    onDeviceReady: function() {
-        app.receivedEvent('deviceready');
-
-
-    
 function Settings() {
 if ((typeof Camera !== "undefined")) {
 this.destinationType = Camera.DestinationType.FILE_URI; // cameraOptions: destinationType
@@ -31,44 +16,20 @@ this.saveToPhotoAlbum = false; // cameraOptions: saveToPhotoAlbum
 this.popoverOptions = new CameraPopoverOptions(100, 100, 100, 100, Camera.PopoverArrowDirection.ARROW_DOWN); // cameraOptions: popoverOptions
 }
 
-var settings;
-	
-	
+document.addEventListener('deviceready', this.onDeviceReady, false);
 
-    
-    settings = new Settings();
-		
 
+ function onDeviceReady() {
     $("#open_camera_button").bind ("click", onCapture);
     $("#open_lib_button").bind ("click", onCapture);
     $("#open_alb_button").bind ("click", onCapture);
-    
-    document.addEventListener("online", onOnline, false);
-    document.addEventListener("offline", onOffline, false)
-	
+ }
 
-
-///////////////////////////////////////////////////////////////////////////////////////	
 function onCapture(e) { 
-
-
-    var callerId = getTargetId(e, "a");
-    
-    switch (callerId) {
-        case "open_camera_button":
-            settings.sourceType = Camera.PictureSourceType.CAMERA;
-            break;
-        case "open_lib_button":
-            settings.sourceType = Camera.PictureSourceType.PHOTOLIBRARY;
-            break;
-        case "open_alb_button":
-            settings.sourceType = Camera.PictureSourceType.SAVEDPHOTOALBUM;
-            break;
-        default:
-            return;
-    }
-    
-    navigator.camera.getPicture(onCaptureSuccess, onCaptureError, { quality : settings.quality,
+var settings;
+settings = new Settings();
+		
+navigator.camera.getPicture(onCaptureSuccess, onCaptureError, { quality : settings.quality,
                                                                     destinationType : settings.destinationType,
                                                                     sourceType : settings.sourceType,
                                                                     allowEdit : settings.allowEdit,
@@ -81,18 +42,8 @@ function onCapture(e) {
 								    cameraDirection: settings.cameraDirection,
                                                                     popoverOptions : settings.popoverOptions
                                                                   });
-
-
-
 }
 			  
-
-
-
-
-
-	
-///////////////////////////////////////////////////////////////////////////////////////
 function onCaptureSuccess(imageData) {
 	
 	var num = document.getElementById("num").value;
@@ -169,28 +120,3 @@ function onCaptureError(message) {alert(message); }
 
 
 
-
-
-function getTargetId(event, tagName) {
-    var target = (event.target.tagName == tagName)
-                    ? event.target
-                    : $(event.target).closest(tagName)[0]
-    return target.id;
-}
-
-function getElement(element) {
-    
-    if(typeof(element) == "string") {
-    
-        element = document.getElementById(element);
-    }
-    
-    return element;
-    }
-},
-
-
-  receivedEvent: function(id) {}
-};
-
-app.initialize();
