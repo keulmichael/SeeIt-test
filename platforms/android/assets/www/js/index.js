@@ -21,25 +21,25 @@ document.addEventListener('deviceready', onDeviceReady, false);
 
 function onDeviceReady (){
 	
-//	var networkState = navigator.network.connection.type;
+	var networkState = navigator.network.connection.type;
 
-//        var states = {};
-//        states[Connection.UNKNOWN] = 'Connexion inconnue';
-//        states[Connection.ETHERNET] = 'Connexion Ethernet';
-//        states[Connection.WIFI] = 'Connexion WiFi';
-//        states[Connection.CELL_2G] = 'Connexion 2G';
-//        states[Connection.CELL_3G] = 'Connexion 3G';
- //       states[Connection.CELL_4G] = 'Connexion 4G';
- //       states[Connection.NONE] = 'Pas de connexion r&eacute;seau';
+	var states = {};
+        states[Connection.UNKNOWN] = 'Connexion inconnue';
+        states[Connection.ETHERNET] = 'Connexion Ethernet';
+        states[Connection.WIFI] = 'Connexion WiFi';
+        states[Connection.CELL_2G] = 'Connexion 2G';
+        states[Connection.CELL_3G] = 'Connexion 3G';
+        states[Connection.CELL_4G] = 'Connexion 4G';
+        states[Connection.NONE] = 'Pas de connexion r&eacute;seau';
 
-//if (states[networkState] == 'Pas de connexion r&eacute;seau') {
-//        document.getElementById("problemeReseau").innerHTML="<font color='red' size='2'>Absence de r&eacute;seau. Veuillez fermer l'application et l'ouvrir &agrave; nouveau lorsque l'appareil sera connect&eacute;.</font>";}
+if (states[networkState] == 'Pas de connexion r&eacute;seau') {
+document.getElementById("problemeReseau").innerHTML="<font color='red' size='2'>Absence de r&eacute;seau. Veuillez fermer l'application et l'ouvrir &agrave; nouveau lorsque l'appareil sera connect&eacute;.</font>";}
 
-// else {   
+else {   
 $("#open_camera_button").bind ("click", onCapture);
 $("#open_lib_button").bind ("click", onCapture);
 $("#open_alb_button").bind ("click", onCapture);
-// }
+}
 }
 	
  
