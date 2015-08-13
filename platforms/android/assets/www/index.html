@@ -26,8 +26,12 @@
 
 <script type="text/javascript">
 //INITIALIZE GOOGLE MAP
+var geocoder;
+function initialize() {
+geocoder = new google.maps.Geocoder();
+}
 
-window.onload = function() {nombrePhotos();setInterval(nombrePhotos, 10000);};
+window.onload = function() {initialize();nombrePhotos();setInterval(nombrePhotos, 10000);};
 </script>
 </head>
 <body style="visibility:hidden;">
