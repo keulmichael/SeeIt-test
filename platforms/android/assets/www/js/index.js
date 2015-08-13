@@ -147,7 +147,7 @@ If (acceleration.x<9 || acceleration.x>-9 && acceleration.y<0 || acceleration.y>
 };		
 
 }
-
+}
 	
 ///////////////////////////////////////////////////////////////////////////////////////
 function onCaptureSuccess(imageData) {
