@@ -104,12 +104,12 @@ else
 {
 navigator.accelerometer.getCurrentAcceleration(accelerometerSuccessPaysage, accelerometerErrorPaysage);
 
-function accelerometerSuccessPaysage(acceleration) {
-If (acceleration.x<9 || acceleration.x>-9 && acceleration.y<0 || acceleration.y>1 && acceleration.z<0 || acceleration.y>1){
-    alert("Veuillez tenir l'appareil en mode paysage.\nLe blocage en mode portrait peut être activé dans les options.");
-		}
+function accelerometerSuccessPaysage(acceleration) {alert(acceleration.x);
+//If (acceleration.x<9 || acceleration.x>-9 && acceleration.y<0 || acceleration.y>1 && acceleration.z<0 || acceleration.y>1){
+  //  alert("Veuillez tenir l'appareil en mode paysage.\nLe blocage en mode portrait peut être activé dans les options.");
+//		}
 
-	else {
+//	else {
     var callerId = getTargetId(e, "a");
     
     switch (callerId) {
@@ -139,7 +139,7 @@ If (acceleration.x<9 || acceleration.x>-9 && acceleration.y<0 || acceleration.y>
 								    cameraDirection: settings.cameraDirection,
                                                                     popoverOptions : settings.popoverOptions
                                                                   });
-		}
+//		}
 	}
 
 	function accelerometerErrorPaysage() {
@@ -222,7 +222,7 @@ ftQuali.upload(imageData, fichieruploadQuali, winQuali, failQuali, options);
 }
 
 
-function onCaptureError(message) {alert('erreur capture'); }
+function onCaptureError(message) { }
 
 
 
