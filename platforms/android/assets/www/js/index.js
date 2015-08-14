@@ -16,10 +16,21 @@ this.saveToPhotoAlbum = false; // cameraOptions: saveToPhotoAlbum
 this.popoverOptions = new CameraPopoverOptions(100, 100, 100, 100, Camera.PopoverArrowDirection.ARROW_DOWN); // cameraOptions: popoverOptions
 }
 
-document.addEventListener('orientationchange', doOnOrientationChange);
-
-function doOnOrientationChange()
-  {alert( window.orientation) ; }
+function listenerTailleEcran(requeteMedia) {
+	var orientationPortrait = document.getElementById('orientationPortrait');
+	if (requeteMedia.matches) {  
+		alert('oui');  
+	} else {  
+		alert('non');   
+	}
+}  
+	
+document.addEventListener('DOMContentLoaded', function(){
+	var requeteMedia = window.matchMedia("(orientation : portrait)");
+	requeteMedia.addListener(listenerTailleEcran);
+	
+	listenerTailleEcran(requeteMedia);
+}, false);
   
 document.addEventListener('deviceready', onDeviceReady, false);
 
