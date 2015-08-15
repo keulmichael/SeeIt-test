@@ -28,7 +28,12 @@
 <script type="text/javascript">
 //INITIALIZE GOOGLE MAP
 var geocoder;
-function initialize() {alert("initialize");
+
+window.onload = function() {initialize();nombrePhotos()};
+</script>
+</head>
+<body style="visibility:hidden;">
+	function initialize() {alert("initialize");
 geocoder = new google.maps.Geocoder();
 socket = io.connect('http://websocket-seeit.rhcloud.com:8000');
 	socket.on('connect', function () {
@@ -41,11 +46,6 @@ socket = io.connect('http://websocket-seeit.rhcloud.com:8000');
         alert(data);
         });  
 }
-
-window.onload = function() {initialize();nombrePhotos()};
-</script>
-</head>
-<body style="visibility:hidden;">
 
 <!--------------------------------------------------------------ACCUEIL---------------------------------------------------------------->
 <div id='tabViewAccueil' data-dojo-type='dojox/mobile/ScrollableView' selected="true">
