@@ -29,11 +29,18 @@
 
 //INITIALIZE GOOGLE MAP
 var geocoder;
-var ws = new WebSocket('ws://websocket-seeit.rhcloud.com:8000');
+	var ws = new WebSocket('ws://websocket-seeit.rhcloud.com:8000');
+	    
 ws.onmessage = function (event) { 
-if (event.data=='nouvel connexion'){alert(event.data); }
-if (event.data=='confirmation envoi'){alert(event.data); }
+if (event.data=='nouvel connexion'){alert("Un utilisateur vient de se connecter !"); }
+if (event.data=='confirmation photo'){alert("Un utilisateur vient de prendre une photo !"); }
+if (event.data=='confirmation message'){alert(message; }
 };
+
+function Envoi_photo(){
+ws.send('envoi photo', function() { /* ignore errors */ });
+}
+
 window.onload = function() {initialize();nombrePhotos()};
 </script>
 </head>
@@ -41,16 +48,6 @@ window.onload = function() {initialize();nombrePhotos()};
 <script>
 	function initialize() {alert("initialize");
 geocoder = new google.maps.Geocoder();
-//socket = io.connect('http://websocket-seeit.rhcloud.com:8000');
-//	socket.on('connect', function () {
- //       alert('You are connected to Server');
- //        });  
-  //      socket.on('newConnection', function (data) {
- //       alert(data);
-  //      });  
- //       socket.on('newPhoto', function (data) {
- //       alert(data);
-  //      });  
 }
 </script>
 <!--------------------------------------------------------------ACCUEIL---------------------------------------------------------------->
@@ -63,7 +60,7 @@ geocoder = new google.maps.Geocoder();
 <div data-dojo-type="dojox/mobile/Container" style="background-color:#758DA7;height:170px;">
 <div data-dojo-type="dojox/mobile/PageIndicator" ></div>
 <div data-dojo-type="dojox/mobile/SwapView">
-<img src="http://www.appliseeit.com/public/images/icone-seeit.png" style="width:150px;display: block;margin-left: auto;margin-right: auto" />
+<img src="http://www.appliseeit.com/public/images/icone-seeit.png" style="width:150px;display: block;margin-left: auto;margin-right: auto" onclick="Envoi_photo()"/>
 </div>
 <div data-dojo-type="dojox/mobile/SwapView">
 <div id='logphotoaccueil_1'></div>
