@@ -39,7 +39,7 @@ ws.onmessage = function (event) {
            alert(data.message);
            break;
        case "confirmation photo":
-           alert(data.message);
+           alert("Un utilisateur vient de prendre une photo à " + data.lieu);
            break;
        case "confirmation message":
            alert(data.message);
