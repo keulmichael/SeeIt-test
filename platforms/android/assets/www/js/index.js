@@ -205,7 +205,9 @@ function geolocationError(error) { alert("Erreur"); }
 
 }) 	
 })	
-
+var data = { "type" : "envoi photo", "message" : "" };
+var message = JSON.stringify(data);
+ws.send(message);
 }
 
 
