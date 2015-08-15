@@ -63,7 +63,7 @@ function(responsePseudoNewPhoto){
 var PseudoNewPhotos=responsePseudoNewPhoto.split("_|_");
 if(PseudoNewPhotos[2]!=''){var adresse=PseudoNewPhotos[2];}
 var heure=PseudoNewPhotos[3].split(" ");
-document.getElementById("messageAlerte").innerHTML="<font color=grey size=2>"+PseudoNewPhotos[1] + ' a pris une photo &agrave; ' + adresse + ' &agrave; ' + heure[1]+"<br> Album : "+PseudoNewPhotos[5]+" - Th&ecirc;me : "+PseudoNewPhotos[6]+"</font>";
+document.getElementById("messageAlerte").innerHTML="<font color=grey size=2>"+PseudoNewPhotos[1] + ' a pris une photo &agrave;Â ' + adresse + ' &agrave;Â ' + heure[1]+"<br> Album : "+PseudoNewPhotos[5]+" - Th&ecirc;me : "+PseudoNewPhotos[6]+"</font>";
 })
 request.get('http://www.appliseeit.com/mobile/VerifNewAlbum.php').then(
 function(responsePseudoNewAlbum){
@@ -161,7 +161,7 @@ if(elt[i].types[0] == 'point_of_interest'){if (typeof elt[i].long_name != "undef
 if(elt[i].types[0] == 'premise'){if (typeof elt[i].long_name != "undefined"){var prem = elt[i].long_name;}else{var prem='';}}
 if(elt[i].types[0] == 'transit_station'){if (typeof elt[i].long_name != "undefined"){var sta = elt[i].long_name;}else{var sta='';}}
 }
-document.getElementById("affichLocalisation").innerHTML="<font color=black>Votre photo sera localis&eacute;e &agrave;  <br>"+results[1].formatted_address+"<br><br>"+ num +" "+ street +"<br>"+ cp +" "+ city +"<br>"+ dpt +"<br>"+ reg +"<br>"+ pays +"<br><br>"+responseLocalisationAnnonceur+"</font>"; })
+document.getElementById("affichLocalisation").innerHTML="<font color=black>Votre photo sera localis&eacute;e &agrave;Â  <br>"+results[1].formatted_address+"<br><br>"+ num +" "+ street +"<br>"+ cp +" "+ city +"<br>"+ dpt +"<br>"+ reg +"<br>"+ pays +"<br><br>"+responseLocalisationAnnonceur+"</font>"; })
 })
 }}
 })
@@ -296,23 +296,7 @@ if(checkRep[2]=="color=grey"){document.getElementById('afficherTourneeApresCreer
 })
 })
 }
-function testSocket(){
-require(["dojo/request", "dojo/request/notify"], function(request, notify){
-notify("start", function(){
-alert('start');
-});
-notify("send", function(response, cancel){
-alert('send' + response);
-});
-notify("load", function(response){
-alert('load') + response;
-});
-request.get("http://www.appliseeit.com/mobile/test.php");
-});
-websocket = new WebSocket("http://www.appliseeit.com/mobile/test.php");
-websocket.onopen = function(evt) { websocket.send("WebSocket rocks"); };
-websocket.onmessage = function(evt) { alert (evt.data); websocket.close(); };
-}
+
 function VerifNewPhoto(type){
 var NbNewPhotos='';
 require(["dojo/request"], function(request){
