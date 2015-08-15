@@ -32,14 +32,25 @@ var geocoder;
 	var ws = new WebSocket('ws://websocket-seeit.rhcloud.com:8000');
 	    
 ws.onmessage = function (event) { 
-if (event.data=='nouvel connexion'){alert("Un utilisateur vient de se connecter !"); }
-if (event.data=='confirmation photo'){alert("Un utilisateur vient de prendre une photo !"); }
-if (event.data=='confirmation message'){alert(message); }
+ var data = JSON.parse(event.data);
+    switch(data.type)
+    {
+       case "nouvelle connexion":
+           document.getElementById("affichage").innerHTML = data.message; alert(data.message);
+           break;
+       case "confirmation photo":
+           document.getElementById("affichage").innerHTML = data.message; alert(data.message);
+           break;
+       case "confirmation message":
+           document.getElementById("affichage").innerHTML = data.message; alert(data.message);
+           break;
+    }
 };
 
 function Envoi_photo(){
-ws.send('envoi photo', function() { /* ignore errors */ });
-}
+var data = { "type" : "envoi photo", "message" : "" };
+var message = JSON.stringify(data);
+ws.send(message);}
 
 function initialize() {alert("initialize");
 geocoder = new google.maps.Geocoder();
