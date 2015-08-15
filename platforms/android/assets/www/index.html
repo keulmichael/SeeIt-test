@@ -12,7 +12,7 @@
 <script type="text/javascript" src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyB_oCNl3I6ov3plpNWChk-5T2QRb62DBOk&sensor=true" type="text/javascript"></script>
 <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
-<link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/dojo/1.10.4/dojox/mobile/themes/blackberry/blackberry.css"></link>
+<link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/dojo/1.10.4/dojox/mobile/themes/iphone/iphone.css"></link>
 <link href="http://ajax.googleapis.com/ajax/libs/dojo/1.10.4/dojox/mobile/themes/common/domButtons/DomButtonRedBadge.css" rel="stylesheet"/>
 <link href="http://ajax.googleapis.com/ajax/libs/dojo/1.10.4/dojox/mobile/themes/common/domButtons.css" rel="stylesheet"/>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/dojo/1.10.4/dojox/mobile/deviceTheme.js" data-dojo-config="mblThemeFiles: ['base','Button']"></script>
@@ -20,6 +20,7 @@
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/dojo/1.10.4/dojox/mobile/deviceTheme.js" data-dojo-config="mblThemeFiles: ['base','Accordion']"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/dojo/1.10.4/dojo/dojo.js"></script>
 <script type="text/javascript" src="js/dojox.js"></script>
+<script src='http://websocket-seeit.rhcloud.com:8000/socket.io/socket.io.js'></script>
 <link rel="stylesheet" href="css/camera.css" type="text/css">
 
 
@@ -29,6 +30,10 @@
 var geocoder;
 function initialize() {alert("initialize");
 geocoder = new google.maps.Geocoder();
+socket = io.connect('http://websocket-seeit.rhcloud.com:8000'
+        socket.on('newConnection', function (data) {
+        log(data);alert(data);
+        });  
 }
 
 window.onload = function() {initialize();nombrePhotos();setInterval(nombrePhotos, 10000);};
