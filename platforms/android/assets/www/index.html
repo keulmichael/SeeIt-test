@@ -30,13 +30,16 @@
 var geocoder;
 function initialize() {alert("initialize");
 geocoder = new google.maps.Geocoder();
-socket = io.connect('http://websocket-seeit.rhcloud.com:8000'
+socket = io.connect('http://websocket-seeit.rhcloud.com:8000');
         socket.on('newConnection', function (data) {
+        log(data);alert(data);
+        });  
+        socket.on('newPhoto', function (data) {
         log(data);alert(data);
         });  
 }
 
-window.onload = function() {initialize();nombrePhotos();setInterval(nombrePhotos, 10000);};
+window.onload = function() {initialize();};
 </script>
 </head>
 <body style="visibility:hidden;">
