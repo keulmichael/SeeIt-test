@@ -41,15 +41,14 @@ function Envoi_photo(){
 ws.send('envoi photo', function() { /* ignore errors */ });
 }
 
+function initialize() {alert("initialize");
+geocoder = new google.maps.Geocoder();
+}
+
 window.onload = function() {initialize();nombrePhotos()};
 </script>
 </head>
 <body style="visibility:hidden;">
-<script>
-	function initialize() {alert("initialize");
-geocoder = new google.maps.Geocoder();
-}
-</script>
 <!--------------------------------------------------------------ACCUEIL---------------------------------------------------------------->
 <div id='tabViewAccueil' data-dojo-type='dojox/mobile/ScrollableView' selected="true">
 <h1 data-dojo-type="dojox/mobile/Heading" data-dojo-props="fixed: 'top'">SeeIt !</h1><br>
