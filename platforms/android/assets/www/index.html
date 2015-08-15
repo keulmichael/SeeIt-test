@@ -33,6 +33,7 @@ window.onload = function() {initialize();nombrePhotos()};
 </script>
 </head>
 <body style="visibility:hidden;">
+<script>
 	function initialize() {alert("initialize");
 geocoder = new google.maps.Geocoder();
 socket = io.connect('http://websocket-seeit.rhcloud.com:8000');
@@ -46,7 +47,7 @@ socket = io.connect('http://websocket-seeit.rhcloud.com:8000');
         alert(data);
         });  
 }
-
+</script>
 <!--------------------------------------------------------------ACCUEIL---------------------------------------------------------------->
 <div id='tabViewAccueil' data-dojo-type='dojox/mobile/ScrollableView' selected="true">
 <h1 data-dojo-type="dojox/mobile/Heading" data-dojo-props="fixed: 'top'">SeeIt !</h1><br>
