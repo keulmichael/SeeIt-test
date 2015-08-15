@@ -36,13 +36,13 @@ ws.onmessage = function (event) {
     switch(data.type)
     {
        case "nouvelle connexion":
-           document.getElementById("affichage").innerHTML = data.message; alert(data.message);
+           alert(data.message);
            break;
        case "confirmation photo":
-           document.getElementById("affichage").innerHTML = data.message; alert(data.message);
+           alert(data.message);
            break;
        case "confirmation message":
-           document.getElementById("affichage").innerHTML = data.message; alert(data.message);
+           alert(data.message);
            break;
     }
 };
