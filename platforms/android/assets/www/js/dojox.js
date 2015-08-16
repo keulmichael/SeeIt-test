@@ -297,34 +297,7 @@ if(checkRep[2]=="color=grey"){document.getElementById('afficherTourneeApresCreer
 })
 }
 
-function VerifNewPhoto(type){
-var NbNewPhotos='';
-require(["dojo/request"], function(request){
-request.get('http://www.appliseeit.com/mobile/VerifNewPhoto.php').then(
-function(responseNewPhoto){
-var NbNewPhotos=responseNewPhoto.split("_|_");
-var ancienNbPhotos=document.getElementById('nombrePhotosCache').value;
-if(ancienNbPhotos!=NbNewPhotos[0]){
-//var Notification = window.Notification || window.mozNotification || window.webkitNotification;
-//Notification.requestPermission(function (permission) {
-//var instance = new Notification("SeeIt!", {body: "De nouvelles photos sont disponibles !",icon:'iconeseeit.jpg'});
-//instance.onclick = function () {AffichBadges();};
-//instance.onclose = function () {AffichBadges();};
-//});
-if(type=='vibrate'){navigator.vibrate([100, 100, 100, 100, 100]);}
-if(type=='son'){navigator.notification.beep(1);}
-}
-})
-})
-}
-function changeAlertSon(value) {
-if (value=='on'){var interval = setInterval("VerifNewPhoto('son')", 1000);}
-if (value=='off'){clearInterval(interval);}
-}
-function changeAlertVibration(value) {
-if (value=='on'){interval = setInterval("VerifNewPhoto('vibrate')", 1000);}
-if (value=='off'){clearInterval(interval);}
-}
+
 function changeInfosParis(value) {
 if (value=='on'){document.getElementById('affichInfoLoca').value="infosParis";if (!navigator.geolocation){alert("Veuillez activer le GPS");}}
 if (value=='off'){document.getElementById('affichInfoLoca').value="";}
