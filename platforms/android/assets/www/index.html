@@ -200,7 +200,7 @@ window.onload = function() {initialize();nombrePhotos()};
 <div data-dojo-type="dojox/mobile/Switch" data-dojo-props="onStateChanged:function(newStateEnregistrerPhoto){changeEnregistrerPhoto(newStateEnregistrerPhoto)}" value="off"></div>
 <li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="rightText:'Nofications'" style="background-color:white;color:black;font-size:10"></li>
 <li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="" style="background-color:white;color:black;font-size:10">Son/Vibration
-<div data-dojo-type="dojox/mobile/Switch" data-dojo-props="onStateChanged:function(newStateAlertSon){}" value="off" id="alertSonVibration"></div>
+<div data-dojo-type="dojox/mobile/Switch" data-dojo-props="onStateChanged:function(newStateAlertSonVibration){navigator.vibrate([100, 100, 100, 100, 100]);navigator.notification.beep(1);}" value="off" id="alertSonVibration"></div>
 <li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="" style="background-color:white;color:black;font-size:10">Reconnaissance Vocale
 <div data-dojo-type="dojox/mobile/Switch" data-dojo-props="onStateChanged:function(){Voix();}" value="off"></div>
 </li>
