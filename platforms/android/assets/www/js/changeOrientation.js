@@ -11,9 +11,9 @@ var photoaccueil_3 = document.getElementById('photoaccueil_3');
 	if (photoaccueil_1.naturalHeight<400){photoaccueil_1.style.width = '70%';}
       	else {photoaccueil_1.style.width = '30%';}
 	if (photoaccueil_2.naturalHeight<400){photoaccueil_2.style.width = '70%';}
-      	else {photoaccueil_2.style.width = '40%';}
+      	else {photoaccueil_2.style.width = '30%';}
 	if (photoaccueil_3.naturalHeight<400){photoaccueil_3.style.width = '70%';}
-      	else {photoaccueil_3.style.width = '40%';}
+      	else {photoaccueil_3.style.width = '30%';}
       	document.getElementById('pubaccueil_1').style.width = '70%';
       	document.getElementById('pubaccueil_2').style.width = '70%';
 	} 
