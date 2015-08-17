@@ -1,3 +1,4 @@
+function listenerTailleEcran(requeteMedia) {
 var containerAccueil = document.getElementById('containerAccueil');
 var icone-seeit = document.getElementById('icone-seeit.png');
 var photoaccueil_1 = document.getElementById('photoaccueil_1');
@@ -8,9 +9,7 @@ var pubaccueil_2 = document.getElementById('pubaccueil_2');
 
 	alert(photoaccueil_1.naturalWidth);
 	alert(photoaccueil_1.naturalHeight);
-
-
-function listenerTailleEcran(requeteMedia) {
+	
 	var orientationPortrait = document.getElementById('orientationPortrait');
 	if (requeteMedia.matches) { 
 	containerAccueil.style.height = '170px';
@@ -29,12 +28,6 @@ function listenerTailleEcran(requeteMedia) {
       	pubaccueil_1.style.width = '40%';
       	pubaccueil_2.style.width = '40%';
 	}
-	
-	
-	var theimg = document.getElementById("photoaccueil_1");  
-	alert("Image Make: " + EXIF.getTag(theimg, "Height"));
-	var theimg2 = document.getElementById("photoaccueil_2");  
-	alert("Image Make: " + EXIF.getTag(theimg2, "Height"));
 }  
 	
 document.addEventListener('DOMContentLoaded', function(){
