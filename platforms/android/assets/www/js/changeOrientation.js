@@ -9,11 +9,11 @@ var photoaccueil_3 = document.getElementById('photoaccueil_3');
 	document.getElementById('containerAccueil').style.height = '170px';
 	document.getElementById('icone-seeit.png').style.height = '150px';
 	if (photoaccueil_1.naturalHeight<400){photoaccueil_1.style.width = '70%';}
-      	else {photoaccueil_1.style.width = '30%';}
+      	else {photoaccueil_1.style.width = '20%';}
 	if (photoaccueil_2.naturalHeight<400){photoaccueil_2.style.width = '70%';}
-      	else {photoaccueil_2.style.width = '30%';}
+      	else {photoaccueil_2.style.width = '20%';}
 	if (photoaccueil_3.naturalHeight<400){photoaccueil_3.style.width = '70%';}
-      	else {photoaccueil_3.style.width = '30%';}
+      	else {photoaccueil_3.style.width = '20%';}
       	document.getElementById('pubaccueil_1').style.width = '70%';
       	document.getElementById('pubaccueil_2').style.width = '70%';
 	} 
