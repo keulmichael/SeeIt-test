@@ -1,27 +1,27 @@
 function listenerTailleEcran(requeteMedia) {
 	var orientationPortrait = document.getElementById('orientationPortrait');
 	if (requeteMedia.matches) {  
-	document.getElementById('containerAccueil').style.height = '450px';
-	document.getElementById('icone-seeit.png').style.width = '420px';	
-      	document.getElementById('photoaccueil_1').style.width = '93%';
-      	document.getElementById('photoaccueil_2').style.width = '93%';
-      	document.getElementById('photoaccueil_3').style.width = '93%';
-      	document.getElementById('pubaccueil_1').style.width = '93%';
-      	document.getElementById('pubaccueil_2').style.width = '93%';
+	document.getElementById('containerAccueil').style.height = '170px';
+	document.getElementById('icone-seeit.png').style.width = '150px';	
+      	document.getElementById('photoaccueil_1').style.width = '70%';
+      	document.getElementById('photoaccueil_2').style.width = '70%';
+      	document.getElementById('photoaccueil_3').style.width = '70%';
+      	document.getElementById('pubaccueil_1').style.width = '70%';
+      	document.getElementById('pubaccueil_2').style.width = '70%';
 	} else {  
-	document.getElementById('containerAccueil').style.height = '300px';
-	document.getElementById('icone-seeit.png').style.width = '250px';
-	document.getElementById('photoaccueil_1').style.width = '45%';
-	document.getElementById('photoaccueil_2').style.width = '45%';
-	document.getElementById('photoaccueil_3').style.width = '45%';
-	document.getElementById('pubaccueil_1').style.width = '45%';
-	document.getElementById('pubaccueil_2').style.width = '45%';
+	document.getElementById('containerAccueil').style.height = '170px';
+	document.getElementById('icone-seeit.png').style.width = '150px';	
+      	document.getElementById('photoaccueil_1').style.width = '40%';
+      	document.getElementById('photoaccueil_2').style.width = '40%';
+      	document.getElementById('photoaccueil_3').style.width = '40%';
+      	document.getElementById('pubaccueil_1').style.width = '40%';
+      	document.getElementById('pubaccueil_2').style.width = '40%';
 	}
 	
 	
-//	var theimg = document.getElementById("imageid");  
+	var theimg = document.getElementById("photoaccueil_1");  
 	
-//	alert("Image Make: " + EXIF.getTag(theimg, "Make"));
+	alert("Image Make: " + EXIF.getTag(theimg, "Make"));
 
 }  
 	
