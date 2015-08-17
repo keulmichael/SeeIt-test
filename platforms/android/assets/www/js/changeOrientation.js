@@ -1,7 +1,7 @@
 function listenerTailleEcran(requeteMedia) {
 	var orientationPortrait = document.getElementById('orientationPortrait');
 	if (requeteMedia.matches) { 
-	document.images["containerAccueil"].height = '170px';
+	document.getElementById('containerAccueil').style.height = '170px';
 	document.images["icone-seeit.png"].height = '150px';	
       	document.images["photoaccueil_1"].width = '70%';
       	document.images["photoaccueil_2"].width = '70%';
