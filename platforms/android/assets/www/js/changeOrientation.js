@@ -20,9 +20,9 @@ function listenerTailleEcran(requeteMedia) {
 	
 	
 	var theimg = document.getElementById("photoaccueil_1");  
-	
-	alert("Image Make: " + EXIF.getTag(theimg, "Make"));
-
+	alert("Image Make: " + EXIF.getTag(theimg, "Height"));
+	var theimg2 = document.getElementById("photoaccueil_2");  
+	alert("Image Make: " + EXIF.getTag(theimg2, "Height"));
 }  
 	
 document.addEventListener('DOMContentLoaded', function(){
