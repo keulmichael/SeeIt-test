@@ -1,4 +1,4 @@
-function listenerTailleEcran(requeteMedia) {
+function listenerTailleEcran(requeteMedia) {alert('requeteMedia:'+requeteMedia);
 	var orientationPortrait = document.getElementById('orientationPortrait');
 	if (requeteMedia.matches) {  
 	document.getElementById('containerAccueil').style.height = '170px';
