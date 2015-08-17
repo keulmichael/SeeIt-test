@@ -14,7 +14,7 @@ function listenerTailleEcran(requeteMedia) {
 	var orientationPortrait = document.getElementById('orientationPortrait');
 	if (requeteMedia.matches) { 
 	containerAccueil.style.height = '170px';
-	icone-seeit.png.style.height = '150px';
+	icone-seeit.style.height = '150px';
       	photoaccueil_1.style.width = '70%';
       	photoaccueil_2.style.width = '70%';
       	photoaccueil_3.style.width = '70%';
@@ -22,7 +22,7 @@ function listenerTailleEcran(requeteMedia) {
       	pubaccueil_2.style.width = '70%';
 	} else { 
 	containerAccueil.style.height = '170px';
-	icone-seeit.png.style.height = '150px';	
+	icone-seeit.style.height = '150px';	
       	photoaccueil_1.style.width = '40%';
       	photoaccueil_2.style.width = '40%';
       	photoaccueil_3.style.width = '40%';
