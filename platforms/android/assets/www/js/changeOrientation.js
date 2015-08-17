@@ -1,11 +1,6 @@
 function listenerTailleEcran(requeteMedia) {
 
-var photoaccueil_1 = document.getElementById('photoaccueil_1');
-var photoaccueil_2 = document.getElementById('photoaccueil_2');
-var photoaccueil_3 = document.getElementById('photoaccueil_3');
 
-alert(photoaccueil_1.naturalHeight);
-alert(photoaccueil_2.naturalHeight);
 
 	var orientationPortrait = document.getElementById('orientationPortrait');
 	if (requeteMedia.matches) { 
@@ -33,6 +28,14 @@ alert(photoaccueil_2.naturalHeight);
 	
 document.addEventListener('DOMContentLoaded', function(){
 	var requeteMedia = window.matchMedia("(orientation : portrait)");
+
+var photoaccueil_1 = document.getElementById('photoaccueil_1');
+var photoaccueil_2 = document.getElementById('photoaccueil_2');
+var photoaccueil_3 = document.getElementById('photoaccueil_3');
+
+alert(photoaccueil_1.naturalHeight);
+alert(photoaccueil_2.naturalHeight);
+
 	requeteMedia.addListener(listenerTailleEcran);
 	
 	listenerTailleEcran(requeteMedia);
