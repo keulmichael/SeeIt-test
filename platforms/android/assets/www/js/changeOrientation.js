@@ -1,4 +1,10 @@
-	document.getElementById('containerAccueil').style.height = '170px';
+var containerAccueil  = document.getElementById('containerAccueil');
+containerAccueil.addEventListener('onload', function() {
+	alert('My width is: ', this.naturalWidth);
+	alert('My height is: ', this.naturalHeight);
+});
+
+	containerAccueil.style.height = '170px';
 	document.getElementById('icone-seeit.png').style.height = '150px';
       	document.getElementById('photoaccueil_1').style.width = '70%';
       	document.getElementById('photoaccueil_2').style.width = '70%';
