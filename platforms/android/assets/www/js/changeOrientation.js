@@ -8,12 +8,14 @@ function listenerTailleEcran(requeteMedia) {
 //var pubaccueil_2 = document.getElementById('pubaccueil_2');
 
 	alert(document.getElementById('photoaccueil_1').naturalWidth);
-//	alert(photoaccueil_1.naturalHeight);
+	alert(document.getElementById('photoaccueil_1').naturalHeight);
+	alert(document.getElementById('photoaccueil_2').naturalWidth);
+	alert(document.getElementById('photoaccueil_2').naturalHeight);
 	
 	var orientationPortrait = document.getElementById('orientationPortrait');
 	if (requeteMedia.matches) { 
 	document.getElementById('containerAccueil').style.height = '170px';
-	document.getElementById('icone-seeit.style').height = '150px';
+	document.getElementById('icone-seeit.style').style.height = '150px';
       	document.getElementById('photoaccueil_1').style.width = '70%';
       	document.getElementById('photoaccueil_2').style.width = '70%';
       	document.getElementById('photoaccueil_3').style.width = '70%';
