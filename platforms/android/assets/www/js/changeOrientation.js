@@ -7,8 +7,8 @@ var photoaccueil_3 = document.getElementById('photoaccueil_3');
 var pubaccueil_1 = document.getElementById('pubaccueil_1');
 var pubaccueil_2 = document.getElementById('pubaccueil_2');
 
-	alert(photoaccueil_1.naturalWidth);
-	alert(photoaccueil_1.naturalHeight);
+//	alert(photoaccueil_1.naturalWidth);
+//	alert(photoaccueil_1.naturalHeight);
 	
 	var orientationPortrait = document.getElementById('orientationPortrait');
 	if (requeteMedia.matches) { 
