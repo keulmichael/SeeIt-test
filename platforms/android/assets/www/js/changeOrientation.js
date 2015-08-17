@@ -4,6 +4,9 @@ var photoaccueil_1 = document.getElementById('photoaccueil_1');
 var photoaccueil_2 = document.getElementById('photoaccueil_2');
 var photoaccueil_3 = document.getElementById('photoaccueil_3');
 
+alert(photoaccueil_1.naturalHeight);
+alert(photoaccueil_2.naturalHeight);
+
 	var orientationPortrait = document.getElementById('orientationPortrait');
 	if (requeteMedia.matches) { 
 	document.getElementById('containerAccueil').style.height = '170px';
