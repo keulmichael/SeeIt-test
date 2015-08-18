@@ -200,6 +200,12 @@ var data = { "type" : "envoi photo", "lieu" : results[1].formatted_address, "pho
 var message = JSON.stringify(data);
 ws.send(message);
 }}
+else
+{
+var data = { "type" : "envoi photo", "lieu" : "", "photo" : num, "id" : sessionStorage.id};
+var message = JSON.stringify(data);
+ws.send(message);
+}
 })	
 
 })
