@@ -41,9 +41,11 @@ ws.onmessage = function (event) {
            alert("Connexion d'un nouvel utilisateur !");
            break;
        case "confirmation photo":
-           alert("Nouvelle photo prise à " + data.lieu);
+       	if (data.id != sessionStorage.id){
+       	    alert("Nouvelle photo prise à " + data.lieu);
            //if(document.getElementById("alertSonVibration").value=='on'){navigator.vibrate([100, 100, 100, 100, 100]);navigator.notification.beep(1);}
            navigator.vibrate([100, 100, 100, 100, 100]);navigator.notification.beep(1);
+       	}
            break;
        case "confirmation message":
            alert(data.message);
