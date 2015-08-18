@@ -200,9 +200,7 @@ var message = JSON.stringify(data);
 ws.send(message);
 }
 }
-
 })	
-
 })
 }
 
