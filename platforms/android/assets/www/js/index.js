@@ -199,13 +199,15 @@ if (results[1]) {
 var data = { "type" : "envoi photo", "lieu" : "à "+results[1].formatted_address, "photo" : num, "id" : sessionStorage.id};
 var message = JSON.stringify(data);
 ws.send(message);
-}}
+}
 else
 {
 var data = { "type" : "envoi photo", "lieu" : "", "photo" : num, "id" : sessionStorage.id};
 var message = JSON.stringify(data);
 ws.send(message);
+}	
 }
+
 })	
 
 })
