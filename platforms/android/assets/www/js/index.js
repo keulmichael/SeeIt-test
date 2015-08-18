@@ -198,9 +198,7 @@ if (results[1]) {
 
 }
 }
-else
-{
-}
+
 })	
 var data = { "type" : "envoi photo", "lieu" : "à "+results[1].formatted_address, "photo" : num, "id" : sessionStorage.id};
 var message = JSON.stringify(data);
