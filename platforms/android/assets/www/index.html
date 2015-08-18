@@ -42,9 +42,9 @@ ws.onmessage = function (event) {
            break;
        case "confirmation photo":
        	if (data.id != sessionStorage.id){
+            navigator.vibrate([100, 100, 100, 100, 100]);navigator.notification.beep(1);
        	    alert("Nouvelle photo prise à " + data.lieu);
            //if(document.getElementById("alertSonVibration").value=='on'){navigator.vibrate([100, 100, 100, 100, 100]);navigator.notification.beep(1);}
-           navigator.vibrate([100, 100, 100, 100, 100]);navigator.notification.beep(1);
        	}
            break;
        case "confirmation message":
