@@ -196,7 +196,7 @@ if (status == google.maps.GeocoderStatus.OK) {
 if (results[1]) {
      request.get('http://www.appliseeit.com/mobile/record_gps.php?num='+num+'&x='+position.coords.latitude+'&y='+position.coords.longitude+'&adress='+results[1].formatted_address).then(function(response276){document.getElementById("affichFormattedAddress").innerHTML="<font size=2 color=grey>"+results[1].formatted_address+"</font>";}) ;
 
-var data = { "type" : "envoi photo", "lieu" : results[1].formatted_address, "photo" : num, "id" : sessionStorage.id};
+var data = { "type" : "envoi photo", "lieu" : "à "+results[1].formatted_address, "photo" : num, "id" : sessionStorage.id};
 var message = JSON.stringify(data);
 ws.send(message);
 }}
