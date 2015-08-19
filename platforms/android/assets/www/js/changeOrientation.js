@@ -1,5 +1,5 @@
-alert (document.getElementById('photoaccueil_1').naturalHeight);
-alert (document.getElementById('photoaccueil_1').naturalWidth);
+alert (document.getElementById('logpubaccueil_1').naturalHeight);
+alert (document.getElementById('logpubaccueil_1').naturalWidth);
 
 function listenerTailleEcran(requeteMedia) {
 
