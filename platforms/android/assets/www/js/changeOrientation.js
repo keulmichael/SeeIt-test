@@ -1,30 +1,23 @@
-alert (document.getElementById('pubaccueil_1').naturalHeight);
-alert (document.getElementById('pubaccueil_1').naturalWidth);
+//photoaccueil_1.naturalHeight<400
 
 function listenerTailleEcran(requeteMedia) {
 
 	var orientationPortrait = document.getElementById('orientationPortrait');
 	
-	var photoaccueil_1 = document.getElementById('photoaccueil_1');
-	var photoaccueil_2 = document.getElementById('photoaccueil_2');
-	var photoaccueil_3 = document.getElementById('photoaccueil_3');
 
 	if (requeteMedia.matches) { 
-	document.getElementById('containerAccueil').style.height = '170px';
-	document.getElementById('icone-seeit.png').style.height = '150px';
-	if (photoaccueil_1.naturalHeight<400){photoaccueil_1.style.width = '70%';}
-      	else {photoaccueil_1.style.width = '20%';}
-	if (photoaccueil_2.naturalHeight<400){photoaccueil_2.style.width = '70%';}
-      	else {photoaccueil_2.style.width = '20%';}
-	if (photoaccueil_3.naturalHeight<400){photoaccueil_3.style.width = '70%';}
-      	else {photoaccueil_3.style.width = '20%';}
+	document.getElementById('containerAccueil').style.height = '190px';
+	document.getElementById('icone-seeit.png').style.height = '180px';
+	document.getElementById('photoaccueil_1').style.width = '70%';
+	document.getElementById('photoaccueil_2').style.width = '70%';
+	document.getElementById('photoaccueil_3').style.width = '70%';
       	document.getElementById('pubaccueil_1').style.width = '70%';
       	document.getElementById('pubaccueil_2').style.width = '70%';
 	} 
 	
 	else { 
-	document.getElementById('containerAccueil').style.height = '170px';
-	document.getElementById('icone-seeit.png').style.height = '150px';	
+	document.getElementById('containerAccueil').style.height = '190px';
+	document.getElementById('icone-seeit.png').style.height = '180px';	
       	document.getElementById('photoaccueil_1').style.width = '40%';
       	document.getElementById('photoaccueil_2').style.width = '40%';
       	document.getElementById('photoaccueil_3').style.width = '40%';
