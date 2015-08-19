@@ -6,7 +6,7 @@ function listenerTailleEcran(requeteMedia) {
 	
 
 	if (requeteMedia.matches) { 
-	document.getElementById('containerAccueil').style.height = '210px';
+	document.getElementById('containerAccueil').style.height = '215px';
 	document.getElementById('icone-seeit.png').style.height = '185px';
 	document.getElementById('photoaccueil_1').style.width = '70%';
 	document.getElementById('photoaccueil_2').style.width = '70%';
@@ -16,7 +16,7 @@ function listenerTailleEcran(requeteMedia) {
 	} 
 	
 	else { 
-	document.getElementById('containerAccueil').style.height = '210px';
+	document.getElementById('containerAccueil').style.height = '215px';
 	document.getElementById('icone-seeit.png').style.height = '185px';	
       	document.getElementById('photoaccueil_1').style.width = '40%';
       	document.getElementById('photoaccueil_2').style.width = '40%';
