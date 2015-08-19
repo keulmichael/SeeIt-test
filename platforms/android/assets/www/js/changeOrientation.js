@@ -1,8 +1,14 @@
+alert (document.getElementById('photoaccueil_1').naturalHeight);
+alert (document.getElementById('photoaccueil_1').naturalWidth);
+
 function listenerTailleEcran(requeteMedia) {
 
-
-
 	var orientationPortrait = document.getElementById('orientationPortrait');
+	
+	var photoaccueil_1 = document.getElementById('photoaccueil_1');
+	var photoaccueil_2 = document.getElementById('photoaccueil_2');
+	var photoaccueil_3 = document.getElementById('photoaccueil_3');
+
 	if (requeteMedia.matches) { 
 	document.getElementById('containerAccueil').style.height = '170px';
 	document.getElementById('icone-seeit.png').style.height = '150px';
@@ -15,6 +21,7 @@ function listenerTailleEcran(requeteMedia) {
       	document.getElementById('pubaccueil_1').style.width = '70%';
       	document.getElementById('pubaccueil_2').style.width = '70%';
 	} 
+	
 	else { 
 	document.getElementById('containerAccueil').style.height = '170px';
 	document.getElementById('icone-seeit.png').style.height = '150px';	
@@ -28,11 +35,6 @@ function listenerTailleEcran(requeteMedia) {
 	
 document.addEventListener('DOMContentLoaded', function(){
 	var requeteMedia = window.matchMedia("(orientation : portrait)");
-
-var photoaccueil_1 = document.getElementById('photoaccueil_1');
-var photoaccueil_2 = document.getElementById('photoaccueil_2');
-var photoaccueil_3 = document.getElementById('photoaccueil_3');
-
 
 	requeteMedia.addListener(listenerTailleEcran);
 	
