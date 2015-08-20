@@ -152,10 +152,14 @@ function onCaptureSuccess(imageData) {
 	
 	var num = document.getElementById("num").value;
 
+require(["dojo/request"], function(request){
+request.get('http://www.appliseeit.com/mobile/numerophoto.php').then(
+function(response){
+
 var win = function (r) {}
 var fail = function (error) {alert("An error has occurred: Code = " + error.code);}
 
-    var fichierupload = encodeURI("http://www.appliseeit.com/mobile/photo.php?quali=non&num="+num+"&imageData="+imageData)
+    var fichierupload = encodeURI("http://www.appliseeit.com/mobile/photo.php?quali=non&num="+num+"&numeroPhoto="+response+"&imageData="+imageData)
     var photo = getElement("pic");
     photo.style.display = "block";
     photo.src = imageData;
@@ -173,11 +177,12 @@ var options = new FileUploadOptions();
             options.params = params;
             var ft = new FileTransfer();
             ft.upload(nomphoto, fichierupload, win, fail, options);
-	    
+
+
 var winQuali = function (r) {}
 var failQuali = function (error) {alert("An error has occurred: Code = " + error.code);}
 	
-var fichieruploadQuali = encodeURI("http://www.appliseeit.com/mobile/photo.php?quali=oui&num="+num+"&imageData="+imageData);
+var fichieruploadQuali = encodeURI("http://www.appliseeit.com/mobile/photo.php?quali=oui&num="+num+"&numeroPhoto="+response+"&imageData="+imageData);
 var ftQuali = new FileTransfer();
 ftQuali.upload(imageData, fichieruploadQuali, winQuali, failQuali, options);
  
@@ -208,7 +213,8 @@ function geolocationError(error) { alert("Erreur"); }
 
 }) 	
 })	
-
+})
+})
 }
 
 
