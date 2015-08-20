@@ -150,16 +150,15 @@ function accelerometerSuccessPaysage(acceleration) {
 ///////////////////////////////////////////////////////////////////////////////////////
 function onCaptureSuccess(imageData) {
 	
-	var num = document.getElementById("num").value;
-
 require(["dojo/request"], function(request){
 request.get('http://www.appliseeit.com/mobile/numerophoto.php').then(
 function(response){
-
+	var num = document.getElementById("num").value;	
+numphoto=num+"_"+response+".jpg";
 var win = function (r) {}
 var fail = function (error) {alert("An error has occurred: Code = " + error.code);}
 
-    var fichierupload = encodeURI("http://www.appliseeit.com/mobile/photo.php?quali=non&num="+num+"&numeroPhoto="+response+"&imageData="+imageData)
+    var fichierupload = encodeURI("http://www.appliseeit.com/mobile/photo.php?quali=non&numphoto="+numphoto+"&imageData="+imageData)
     var photo = getElement("pic");
     photo.style.display = "block";
     photo.src = imageData;
@@ -182,7 +181,7 @@ var options = new FileUploadOptions();
 var winQuali = function (r) {}
 var failQuali = function (error) {alert("An error has occurred: Code = " + error.code);}
 	
-var fichieruploadQuali = encodeURI("http://www.appliseeit.com/mobile/photo.php?quali=oui&num="+num+"&numeroPhoto="+response+"&imageData="+imageData);
+var fichieruploadQuali = encodeURI("http://www.appliseeit.com/mobile/photo.php?quali=oui&numphoto="+numphoto+"&imageData="+imageData);
 var ftQuali = new FileTransfer();
 ftQuali.upload(imageData, fichieruploadQuali, winQuali, failQuali, options);
  
@@ -200,7 +199,7 @@ geocoder.geocode({'latLng': latlng}, function(results, status) {
 if (status == google.maps.GeocoderStatus.OK) {
 if (results[1]) {
      request.get('http://www.appliseeit.com/mobile/record_gps.php?num='+num+'&x='+position.coords.latitude+'&y='+position.coords.longitude+'&adress='+results[1].formatted_address).then(function(response276){document.getElementById("affichFormattedAddress").innerHTML="<font size=2 color=grey>"+results[1].formatted_address+"</font>";}) ;
-var data = { "type" : "envoi photo", "lieu" : "à "+results[1].formatted_address, "photo" : num, "id" : sessionStorage.id};
+var data = { "type" : "envoi photo", "lieu" : "à "+results[1].formatted_address, "photo" : numphoto, "id" : sessionStorage.id};
 var message = JSON.stringify(data);
 ws.send(message);
 }
