@@ -42,9 +42,9 @@ ws.onmessage = function (event) {
            break;
        case "confirmation photo":
        	if (data.id != sessionStorage.id){
-            navigator.vibrate([100, 100, 100, 100, 100]);navigator.notification.beep(1);
+            ::navigator.vibrate([100, 100, 100, 100, 100]);navigator.notification.beep(1);
+       	    if(document.getElementById("alertSonVibration").value=='on'){navigator.vibrate([100, 100, 100, 100, 100]);navigator.notification.beep(1);}
        	    alert("Nouvelle photo prise " + data.lieu);
-           //if(document.getElementById("alertSonVibration").value=='on'){navigator.vibrate([100, 100, 100, 100, 100]);navigator.notification.beep(1);}
        	}
            break;
        case "confirmation message":
@@ -108,8 +108,8 @@ window.onload = function() {initialize();nombrePhotos()};
 <div align="center"><font size=3 color=grey align='center'>Nombre de photos en ligne</font></div>
 <div id="gauge"></div>
 <ul data-dojo-type="dojox/mobile/RoundRectList">
-<li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="icon:'http://www.appliseeit.com/mobile/iconeAlbum.png', rightText:'Consulter', moveTo:'album'" style="background-color:white;color:black;font-size:10px">Album</li>
-<li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="icon:'http://www.appliseeit.com/mobile/iconeApparareilphoto2.png', rightText:'Prendre', moveTo:'tournees'" style="background-color:white;color:black;font-size:10px">Photos</li>
+<li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="icon:'http://www.appliseeit.com/mobile/iconeAlbum.png', rightText:'Consulter', moveTo:'album'" style="background-color:white;color:black;font-size:16px">Album</li>
+<li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="icon:'http://www.appliseeit.com/mobile/iconeApparareilphoto2.png', rightText:'Prendre', moveTo:'tournees'" style="background-color:white;color:black;font-size:16px">Photos</li>
 </ul>
 <br>
 <div id='problemeReseau' align="center"></div>
@@ -189,7 +189,7 @@ window.onload = function() {initialize();nombrePhotos()};
 <table><tr><td><img src="http://www.appliseeit.com/mobile/image/pull-to-refresh-arrow.png"></td><td><font color=grey size=2> Chargement en cours...</font></td></tr></table>
 </div>
 <ul data-dojo-type="dojox/mobile/RoundRectList">
-<li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="rightText:'Appareil photo'" style="background-color:white;color:black;font-size:10"></li>
+<li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="rightText:'Appareil photo'" style="background-color:white;color:black;font-size:20px"></li>
 <li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="" style="background-color:white;color:black;font-size:16px">Orientation auto
 <div data-dojo-type="dojox/mobile/Switch" data-dojo-props="onStateChanged:function(newStateOrientation){changeCorrectOrientation(newStateOrientation)}" value="off"></div>
 <li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="" style="background-color:white;color:black;font-size:16px">Blocage Position (Paysage)
@@ -200,11 +200,11 @@ window.onload = function() {initialize();nombrePhotos()};
 <div data-dojo-type="dojox/mobile/Switch" data-dojo-props="onStateChanged:function(newStateCameraDirection){changeCameraDirection(newStateCameraDirection)}" value="off"></div>
 <li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="" style="background-color:white;color:black;font-size:16px">Zoom Grand Angle
 <div data-dojo-type="dojox/mobile/Switch" data-dojo-props="onStateChanged:function(){alert('Option disponible dans les prochaines versions');}" value="off"></div>
-<li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="rightText:'Photo'" style="background-color:white;color:black;font-size:16px"></li>
+<li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="rightText:'Photo'" style="background-color:white;color:black;font-size:20px"></li>
 <li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="" style="background-color:white;color:black;font-size:16px">Enregistrer dans l'appareil
 <div data-dojo-type="dojox/mobile/Switch" data-dojo-props="onStateChanged:function(newStateEnregistrerPhoto){changeEnregistrerPhoto(newStateEnregistrerPhoto)}" value="off"></div>
-<li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="rightText:'Nofications'" style="background-color:white;color:black;font-size:16px"></li>
-<li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="" style="background-color:white;color:black;font-size:16px0">Son/Vibration
+<li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="rightText:'Nofications'" style="background-color:white;color:black;font-size:20px"></li>
+<li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="" style="background-color:white;color:black;font-size:16px">Son/Vibration
 <div data-dojo-type="dojox/mobile/Switch" data-dojo-props="onStateChanged:function(newStateAlertSonVibration){navigator.vibrate([100, 100, 100, 100, 100]);navigator.notification.beep(1);}" value="off" id="alertSonVibration"></div>
 <li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="" style="background-color:white;color:black;font-size:16px">Reconnaissance Vocale
 <div data-dojo-type="dojox/mobile/Switch" data-dojo-props="onStateChanged:function(){Voix();}" value="off"></div>
