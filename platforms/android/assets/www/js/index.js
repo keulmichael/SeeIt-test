@@ -149,11 +149,12 @@ function accelerometerSuccessPaysage(acceleration) {
 	
 ///////////////////////////////////////////////////////////////////////////////////////
 function onCaptureSuccess(imageData) {
+	var num = document.getElementById("num").value;	
 	
 require(["dojo/request"], function(request){
-request.get('http://www.appliseeit.com/mobile/numerophoto.php').then(
+request.get('http://www.appliseeit.com/mobile/numerophoto.php?num='+num).then(
 function(response){
-	var num = document.getElementById("num").value;	
+
 numphoto=num+"_"+response+".jpg";
 var win = function (r) {}
 var fail = function (error) {alert("An error has occurred: Code = " + error.code);}
