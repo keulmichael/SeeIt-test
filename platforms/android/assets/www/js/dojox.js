@@ -49,6 +49,7 @@ var resAff = res[i].split("_!_");
 var itemWidget = new IconItem({
 icon: "http://www.appliseeit.com/mobile/camera.png",
 label: resAff[1],
+lazy : true,
 Badge: resAff[0],
 moveTo:"#",
 onClick: function(e){
