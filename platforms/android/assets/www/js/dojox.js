@@ -245,6 +245,17 @@ function changeEnregistrerPhoto(value) {
 if (value=='on'){settings.saveToPhotoAlbum=true;}
 else{settings.saveToPhotoAlbum=false;}
 };
+
+function AlertSonVibration() {
+if (value=='on'){settings.saveToPhotoAlbum=true;}
+else{settings.saveToPhotoAlbum=false;}
+};
+
+function AlertNouvelleConnexion() {
+if (value=='on'){settings.saveToPhotoAlbum=true;}
+else{settings.saveToPhotoAlbum=false;}
+};
+
 function Voix(){
 if ('webkitSpeechRecognition' in window) {
 var recognition = new webkitSpeechRecognition();
