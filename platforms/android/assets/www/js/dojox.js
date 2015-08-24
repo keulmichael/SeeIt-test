@@ -247,13 +247,15 @@ else{settings.saveToPhotoAlbum=false;}
 };
 
 function AlertSonVibration() {
-if (value=='on'){settings.saveToPhotoAlbum=true;}
-else{settings.saveToPhotoAlbum=false;}
+if (document.getElementById("alertSonVibration").innerHTML=='on')
+{navigator.vibrate([100, 100, 100, 100, 100]);navigator.notification.beep(1);}
+else{}
 };
 
 function AlertNouvelleConnexion() {
-if (value=='on'){settings.saveToPhotoAlbum=true;}
-else{settings.saveToPhotoAlbum=false;}
+if (document.getElementById("alertNouvelleConnexion").innerHTML=='on')
+{navigator.vibrate([100, 100, 100, 100, 100]);navigator.notification.beep(1);}
+else{}
 };
 
 function Voix(){
