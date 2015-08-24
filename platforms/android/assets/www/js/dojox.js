@@ -246,7 +246,7 @@ if (value=='on'){settings.saveToPhotoAlbum=true;}
 else{settings.saveToPhotoAlbum=false;}
 };
 
-function AlertSonVibration() {document.getElementById("alertSonVibration").innerHTML;
+function AlertSonVibration() {alert(document.getElementById("alertSonVibration").innerHTML);
 if (document.getElementById("alertSonVibration").innerHTML=='on')
 {navigator.vibrate([100, 100, 100, 100, 100]);navigator.notification.beep(1);}
 else{}
