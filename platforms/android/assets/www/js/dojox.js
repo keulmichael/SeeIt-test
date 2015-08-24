@@ -246,14 +246,14 @@ if (value=='on'){settings.saveToPhotoAlbum=true;}
 else{settings.saveToPhotoAlbum=false;}
 };
 
-function AlertSonVibration() {alert(document.getElementById("alertSonVibration").innerHTML);
-if (document.getElementById("alertSonVibration").innerHTML=='on')
+function AlertSonVibration(alertSonVibration) {
+if (alertSonVibration=='off')
 {navigator.vibrate([100, 100, 100, 100, 100]);navigator.notification.beep(1);}
 else{}
 };
 
-function AlertNouvelleConnexion() {
-if (document.getElementById("alertNouvelleConnexion").innerHTML=='on')
+function AlertNouvelleConnexion(alertNouvelleConnexion) {
+if (alertNouvelleConnexion=='off')
 {navigator.vibrate([100, 100, 100, 100, 100]);navigator.notification.beep(1);}
 else{}
 };
