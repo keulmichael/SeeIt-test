@@ -38,12 +38,17 @@ ws.onmessage = function (event) {
        case "nouvelle connexion":
        var id = Math.floor(Math.random() * 100000000000000) ;
        sessionStorage.id = id;
-           alert("Bienvenue au nouvel utilisateur ! "+document.getElementById("alertSonVibration").value);
+       	    if(document.getElementById("alertNouvelleConnexion").innerHTML=='on'){
+          navigator.vibrate([100, 100, 100, 100, 100]);navigator.notification.beep(1);
+           alert("Bienvenue au nouvel utilisateur ! ");
+       	    }
            break;
        case "confirmation photo":
        	if (data.id != sessionStorage.id){
-       	    if(document.getElementById("alertSonVibration").value=='on'){navigator.vibrate([100, 100, 100, 100, 100]);navigator.notification.beep(1);}
-       	    alert("Nouvelle photo prise " + data.lieu);
+       	    if(document.getElementById("alertSonVibration").innerHTML=='on'){
+       	    	navigator.vibrate([100, 100, 100, 100, 100]);navigator.notification.beep(1);
+       	       alert("Nouvelle photo prise " + data.lieu);
+       	    }
        	}
            break;
        case "confirmation message":
@@ -203,10 +208,10 @@ window.onload = function() {initialize();nombrePhotos()};
 <li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="" style="background-color:white;color:black;font-size:16px">Enregistrer dans l'appareil
 <div data-dojo-type="dojox/mobile/Switch" data-dojo-props="onStateChanged:function(newStateEnregistrerPhoto){changeEnregistrerPhoto(newStateEnregistrerPhoto)}" value="off"></div>
 <li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="rightText:'Nofications'" style="background-color:white;color:black;font-size:20px"></li>
-<li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="" style="background-color:white;color:black;font-size:16px">Son/Vibration
-<div data-dojo-type="dojox/mobile/Switch" data-dojo-props="onStateChanged:function(newStateAlertSonVibration){navigator.vibrate([100, 100, 100, 100, 100]);navigator.notification.beep(1);}" value="off" id="alertSonVibration"></div>
-<li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="" style="background-color:white;color:black;font-size:16px">Reconnaissance Vocale
-<div data-dojo-type="dojox/mobile/Switch" data-dojo-props="onStateChanged:function(){Voix();}" value="off"></div>
+<li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="" style="background-color:white;color:black;font-size:16px">Nouvelles photos
+<div data-dojo-type="dojox/mobile/Switch" data-dojo-props="onStateChanged:function(newStateAlertSonVibration){AlertSonVibration)(newStateAlertSonVibration);}" value="off" id="alertSonVibration"></div>
+<li data-dojo-type="dojox/mobile/ListItem" data-dojo-props="" style="background-color:white;color:black;font-size:16px">Nouvelles connexions
+<div data-dojo-type="dojox/mobile/Switch" data-dojo-props="onStateChanged:function(newStateAlertNouvelleConnexion){AlertNouvelleConnexion(newStateAlertNouvelleConnexion);}" value="off" id="alertNouvelleConnexion"></div>
 </li>
 <div data-dojo-type="dojox/mobile/Accordion" >
 <div data-dojo-type="dojox/mobile/ContentPane" data-dojo-props='label:"Th&ecirc;mes"'>
