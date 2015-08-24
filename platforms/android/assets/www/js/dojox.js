@@ -247,13 +247,13 @@ else{settings.saveToPhotoAlbum=false;}
 };
 
 function AlertSonVibration(alertSonVibration) {
-if (alertSonVibration=='off')
+if (alertSonVibration=='on')
 {navigator.vibrate([100, 100, 100, 100, 100]);navigator.notification.beep(1);}
 else{}
 };
 
 function AlertNouvelleConnexion(alertNouvelleConnexion) {
-if (alertNouvelleConnexion=='off')
+if (alertNouvelleConnexion=='on')
 {navigator.vibrate([100, 100, 100, 100, 100]);navigator.notification.beep(1);}
 else{}
 };
