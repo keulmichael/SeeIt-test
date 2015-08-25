@@ -1,7 +1,3 @@
-var valalertNouvelleConnexion = registry.byId("alertNouvelleConnexion");
-var valalertSonVibration = registry.byId("alertSonVibration");
-
-
 	var ws = new WebSocket('ws://websocket-seeit.rhcloud.com:8000');
 	    
 ws.onmessage = function (event) { 
@@ -11,16 +7,23 @@ ws.onmessage = function (event) {
        case "nouvelle connexion":
        var id = Math.floor(Math.random() * 100000000000000) ;
        sessionStorage.id = id;
-       	   // if(document.getElementById("alertNouvelleConnexion").innerHTML=='on'){
+       
+       
+       require(["dijit/registry"], function(registry){
+		if(registry.byId("alertNouvelleConnexion")=='on'){
            alert("Bienvenue au nouvel utilisateur ! ");
-       	   // }
-           break;
+       	    }
+})
+       
+       break;
        case "confirmation photo":
        	if (data.id != sessionStorage.id){
-       	   // if(document.getElementById("alertSonVibration").innerHTML=='on'){
+       require(["dijit/registry"], function(registry){		
+       	    if(registry.byId("alertSonVibration")=='on'){
        	    	navigator.vibrate([100, 100, 100, 100, 100]);navigator.notification.beep(1);
        	       alert("Nouvelle photo prise " + data.lieu);
-       	   // }
+       	    }
+})	    
        	}
            break;
        case "confirmation message":
