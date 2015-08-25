@@ -9,12 +9,10 @@ ws.onmessage = function (event) {
        sessionStorage.id = id;
        
        
-       require(["dojo/parser", "dojo/dom", "dijit/registry"], function(parser, dom, registry){
-       	var widget = registry.byId("alertNouvelleConnexion");alert(widget.get("value"));
-		if(widget.get("value")=='on'){
+
            alert("Bienvenue au nouvel utilisateur ! ");
-       	    }
-})
+       	    
+
        
        break;
        case "confirmation photo":
