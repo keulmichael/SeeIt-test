@@ -8,8 +8,8 @@ ws.onmessage = function (event) {
        var id = Math.floor(Math.random() * 100000000000000) ;
        sessionStorage.id = id;
        
-       alert(
-       require(["dijit/registry"], function(registry){
+       
+       require(["dijit/registry"], function(registry){alert(registry.byId("alertNouvelleConnexion").value);
 		if(registry.byId("alertNouvelleConnexion").value=='on'){
            alert("Bienvenue au nouvel utilisateur ! ");
        	    }
