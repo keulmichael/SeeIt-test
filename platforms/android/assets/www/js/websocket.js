@@ -8,9 +8,9 @@ ws.onmessage = function (event) {
        var id = Math.floor(Math.random() * 100000000000000) ;
        sessionStorage.id = id;
        
-       
+       alert(
        require(["dijit/registry"], function(registry){
-		if(registry.byId("alertNouvelleConnexion")=='on'){
+		if(registry.byId("alertNouvelleConnexion").value=='on'){
            alert("Bienvenue au nouvel utilisateur ! ");
        	    }
 })
@@ -19,7 +19,7 @@ ws.onmessage = function (event) {
        case "confirmation photo":
        	if (data.id != sessionStorage.id){
        require(["dijit/registry"], function(registry){		
-       	    if(registry.byId("alertSonVibration")=='on'){
+       	    if(registry.byId("alertSonVibration").value=='on'){
        	    	navigator.vibrate([100, 100, 100, 100, 100]);navigator.notification.beep(1);
        	       alert("Nouvelle photo prise " + data.lieu);
        	    }
