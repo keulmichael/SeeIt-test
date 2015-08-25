@@ -8,10 +8,10 @@ ws.onmessage = function (event) {
        var id = Math.floor(Math.random() * 100000000000000) ;
        sessionStorage.id = id;
        
-       
+        require(["dijit/registry"], function(registry){
 
-           alert("Bienvenue au nouvel utilisateur ! ");
-       	    
+           alert(registry.byId("alertSonVibration").value);
+        })	    
 
        
        break;
