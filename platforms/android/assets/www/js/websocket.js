@@ -8,8 +8,8 @@ ws.onmessage = function (event) {
        var id = Math.floor(Math.random() * 100000000000000) ;
        sessionStorage.id = id;
         alert("Bienvenue au nouvel utilisateur !");
-       
        break;
+       
        case "confirmation photo":
        	if (data.id != sessionStorage.id){
 	
@@ -18,9 +18,15 @@ ws.onmessage = function (event) {
        	    
        	}
            break;
+           
        case "confirmation message":
            alert(data.message);
            break
+           
+       case "cron":
+           alert(data.message);
+           break
+           
        case "confirmation ouvrir appareil photo":
           onCapture();
            break;
