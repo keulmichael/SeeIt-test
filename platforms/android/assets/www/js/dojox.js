@@ -426,7 +426,7 @@ alert(photo);
 
   require([  "dijit/registry",  "dojox/mobile",  "dojox/mobile/parser",  "dojox/mobile/SimpleDialog",  "dojox/mobile/Button"
 ], function(registry){
-  show = function(dlg){
+  show = function(dlg){alert("Bienvenue au nouvel utilisateur !");
     registry.byId(dlg).show();
   };
   hide = function(dlg){
