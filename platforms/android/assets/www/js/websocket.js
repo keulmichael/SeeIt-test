@@ -9,6 +9,10 @@ registry.byId(dlg).hide();
 };
 });
 
+function showCon(lmk){
+	alert(lmk);
+	
+}
 
 	var ws = new WebSocket('ws://websocket-seeit.rhcloud.com:8000');
 
@@ -20,7 +24,7 @@ ws.onmessage = function (event) {
        var id = Math.floor(Math.random() * 100000000000000) ;
        sessionStorage.id = id;
        //alert("Bienvenue au nouvel utilisateur !");
- show('dlg_connexion');
+ showCon('dlg_connexion');
        break;
        
        case "confirmation photo":
