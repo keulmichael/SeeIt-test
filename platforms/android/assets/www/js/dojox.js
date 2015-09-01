@@ -422,3 +422,15 @@ function affichLien(photo){
 alert(photo);
 }
 
+
+
+require(["dojo/request",
+"dijit/registry"
+], function(request, registry){
+	showDialog = function(){
+		var dlg = registry.byId('dlg_photo');
+		dlg.show();
+	};
+})
+
+
