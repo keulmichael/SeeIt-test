@@ -1,14 +1,15 @@
-function show(dlg){
  require([ "dijit/registry", "dojox/mobile", "dojox/mobile/parser", "dojox/mobile/SimpleDialog", "dojox/mobile/Button"
 ], function(registry){
+show = function (dlg){
+
 registry.byId(dlg).show();
-});
+
 };
 
 hide = function(dlg){
 registry.byId(dlg).hide();
 };
-
+});
 
 
 
