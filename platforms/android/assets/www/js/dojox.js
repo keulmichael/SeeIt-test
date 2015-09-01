@@ -424,17 +424,14 @@ alert(photo);
 
 
 
-require(["dojo/_base/array", "dojo/_base/fx", "dojo/_base/window", "dojo/dom", "dojo/dom-class", "dojo/dom-geometry", "dojo/dom-style", "dojo/hccss", "dojo/date/locale", "dojo/parser", "dojo/store/Memory","dijit/registry"
-], function(array, baseFx, win, dom, domClass, domGeom, domStyle, has, locale, parser, Memory, registry){
-	showDialogConnexion = function(){
-		var dlg = registry.byId('dlg_connexion');
-		dlg.show();
-	};
-	
-	showDialogPhoto = function(){
-		var dlg = registry.byId('dlg_photo');
-		dlg.show();
-	};
-})
+  require([  "dijit/registry",  "dojox/mobile",  "dojox/mobile/parser",  "dojox/mobile/SimpleDialog",  "dojox/mobile/Button"
+], function(registry){
+  show = function(dlg){
+    registry.byId(dlg).show();
+  };
+  hide = function(dlg){
+    registry.byId(dlg).hide();
+  };
+});
 
 
