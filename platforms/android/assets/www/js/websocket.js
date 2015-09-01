@@ -1,18 +1,16 @@
+function show(dlg){
  require([ "dijit/registry", "dojox/mobile", "dojox/mobile/parser", "dojox/mobile/SimpleDialog", "dojox/mobile/Button"
 ], function(registry){
-show = function(dlg){
-	alert('ok');
 registry.byId(dlg).show();
+});
 };
+
 hide = function(dlg){
 registry.byId(dlg).hide();
 };
-});
 
-function showCon(lmk){
-	alert(lmk);
-	
-}
+
+
 
 	var ws = new WebSocket('ws://websocket-seeit.rhcloud.com:8000');
 
@@ -24,7 +22,7 @@ ws.onmessage = function (event) {
        var id = Math.floor(Math.random() * 100000000000000) ;
        sessionStorage.id = id;
        //alert("Bienvenue au nouvel utilisateur !");
- showCon('dlg_connexion');
+ show('dlg_connexion');
        break;
        
        case "confirmation photo":
