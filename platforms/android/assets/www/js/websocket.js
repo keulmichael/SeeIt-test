@@ -1,3 +1,17 @@
+require([
+"dijit/registry",
+"dojox/mobile",
+"dojox/mobile/parser",
+"dojox/mobile/SimpleDialog",
+"dojox/mobile/Button"
+], function(registry){
+show = function(dlg){alert(dlg);
+registry.byId(dlg).show();
+};
+hide = function(dlg){
+registry.byId(dlg).hide();
+};
+});
 
 
 	var ws = new WebSocket('ws://websocket-seeit.rhcloud.com:8000');
