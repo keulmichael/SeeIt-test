@@ -1,18 +1,16 @@
-
-
-function testetst(){alert('ok');}
+function show(dlksjf){alert(dlksjf)};
 
 	var ws = new WebSocket('ws://websocket-seeit.rhcloud.com:8000');
 
 ws.onmessage = function (event) { 
-	testetst();
+
  var data = JSON.parse(event.data);
     switch(data.type)
     {
        case "nouvelle connexion":
        var id = Math.floor(Math.random() * 100000000000000) ;
        sessionStorage.id = id;
-
+show('dlg_connexion');
        break;
        
        case "confirmation photo":
