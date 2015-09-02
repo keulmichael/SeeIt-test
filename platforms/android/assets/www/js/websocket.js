@@ -4,15 +4,10 @@
  function show (dlg){
 registry.byId(dlg).show();
 };
-});
-
-
 function hide (dlg){
-require([ "dijit/registry"], function(registry){
 registry.byId(dlg).hide();
-});
 };
-
+});
 
 
 
