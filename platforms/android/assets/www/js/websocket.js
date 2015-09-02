@@ -1,5 +1,6 @@
 
- require([ "dijit/registry"], function(registry){
+ require([ "dijit/registry", "dojox/mobile", "dojox/mobile/parser", "dojox/mobile/SimpleDialog"], 
+ function(registry){
  function show (dlg){
 registry.byId(dlg).show();
 };
