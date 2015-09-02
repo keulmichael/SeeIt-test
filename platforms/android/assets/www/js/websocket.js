@@ -3,6 +3,7 @@
 	var ws = new WebSocket('ws://websocket-seeit.rhcloud.com:8000');
 
 ws.onmessage = function (event) { 
+	show('dlg_connexion');
  var data = JSON.parse(event.data);
     switch(data.type)
     {
