@@ -1,3 +1,6 @@
+function testAlert(alert("Bienvenue au nouvel utilisateur !"));
+
+
 
 	var ws = new WebSocket('ws://websocket-seeit.rhcloud.com:8000');
 
@@ -8,7 +11,7 @@ ws.onmessage = function (event) {
        case "nouvelle connexion":
        var id = Math.floor(Math.random() * 100000000000000) ;
        sessionStorage.id = id;
-       //alert("Bienvenue au nouvel utilisateur !");
+       testAlert();
  show('dlg_connexion');
        break;
        
