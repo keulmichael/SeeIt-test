@@ -13,8 +13,6 @@ require(["dijit/registry", "dojox/mobile", "dojox/mobile/parser", "dojox/mobile/
 ], function(registry){
     registry.byId('dlg_connexion').show();
 });
-
- show('dlg_connexion');
        break;
        
        case "confirmation photo":
