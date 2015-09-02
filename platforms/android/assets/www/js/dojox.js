@@ -429,7 +429,7 @@ require([
   "dojox/mobile/SimpleDialog",
   "dojox/mobile/Button"
 ], function(registry){
-  show = function(dlg){
+  show = function(dlg){alert(dlg);
     registry.byId(dlg).show();
   };
   hide = function(dlg){
