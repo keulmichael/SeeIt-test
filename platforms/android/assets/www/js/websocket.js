@@ -11,7 +11,7 @@ ws.onmessage = function (event) {
        sessionStorage.id = id;
 require(["dijit/registry", "dojox/mobile", "dojox/mobile/parser", "dojox/mobile/SimpleDialog", "dojox/mobile/Button"
 ], function(registry){
-    registry.byId(dlg).show();
+    registry.byId('dlg_connexion').show();
 });
 
  show('dlg_connexion');
