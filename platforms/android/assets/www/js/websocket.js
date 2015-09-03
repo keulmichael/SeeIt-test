@@ -1,7 +1,7 @@
 require([
 "dijit/registry","dojox/mobile","dojox/mobile/parser","dojox/mobile/SimpleDialog","dojox/mobile/Button"
 ], function(registry){
-function show(dlg,mess){
+function show(dlg,mess){alert(dlg+" "+mess);
 if (dlg=='dlg_photo'){document.getElementById("textNbPhotosEnLigne").innerHTML=mess;}
 registry.byId(dlg).show();
 };
