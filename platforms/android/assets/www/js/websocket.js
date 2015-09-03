@@ -10,7 +10,7 @@ ws.onmessage = function (event) {
        case "nouvelle connexion":
        var id = Math.floor(Math.random() * 100000000000000) ;
        sessionStorage.id = id;
-       	alert(data.typ);
+       	alert(data.type);
 show('dlg_connexion','mess');
        break;
        
