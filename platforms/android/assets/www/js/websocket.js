@@ -1,11 +1,8 @@
 require([
-"dijit/registry",
-"dojox/mobile",
-"dojox/mobile/parser",
-"dojox/mobile/SimpleDialog",
-"dojox/mobile/Button"
+"dijit/registry","dojox/mobile","dojox/mobile/parser","dojox/mobile/SimpleDialog","dojox/mobile/Button"
 ], function(registry){
-function show(dlg){
+function show(dlg,mess){
+if (dl=='dlg_photo'){document.getElementById("nbPhotosEnLigne").innerHTML=mess;}
 registry.byId(dlg).show();
 };
 hide = function(dlg){
@@ -23,7 +20,7 @@ ws.onmessage = function (event) {
        case "nouvelle connexion":
        var id = Math.floor(Math.random() * 100000000000000) ;
        sessionStorage.id = id;
-show('dlg_connexion');
+show('dlg_connexion','mess');
        break;
        
        case "confirmation photo":
@@ -40,8 +37,7 @@ show('dlg_connexion');
            break
            
        case "cron":
-          // alert(data.message);
-             show('dlg_photo');
+             show('dlg_photo',data.messsage);
            break
            
        case "confirmation ouvrir appareil photo":
