@@ -433,8 +433,8 @@ require([
   "dojox/mobile/SimpleDialog",
   "dojox/mobile/Button"
 ], function(registry){
-  show = function(dlg){
-  	//if (dlg=='dlg_photo'){document.getElementById("textNbPhotosEnLigne").innerHTML=mess;}
+  show = function(dlg,mess){
+  	if (dlg=='dlg_photo'){document.getElementById("textNbPhotosEnLigne").innerHTML=mess;}
     registry.byId(dlg).show();
   };
   hide = function(dlg){
