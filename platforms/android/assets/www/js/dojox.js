@@ -427,7 +427,7 @@ require([
 ], function(registry){
 function show(dlg){alert(dlg);
 //if (dlg=='dlg_photo'){document.getElementById("textNbPhotosEnLigne").innerHTML=mess;}
-registry.byId(dlg).show();
+//registry.byId(dlg).show();
 };
 hide = function(dlg){
 registry.byId(dlg).hide();
