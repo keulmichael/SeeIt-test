@@ -425,7 +425,7 @@ alert(photo);
 require([
 "dijit/registry","dojox/mobile","dojox/mobile/parser","dojox/mobile/SimpleDialog","dojox/mobile/Button"
 ], function(registry){
-function show(dlg){
+function show(dlg){alert(dlg);
 //if (dlg=='dlg_photo'){document.getElementById("textNbPhotosEnLigne").innerHTML=mess;}
 registry.byId(dlg).show();
 };
