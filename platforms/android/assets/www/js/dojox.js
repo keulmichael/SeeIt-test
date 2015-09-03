@@ -435,6 +435,7 @@ require([
 ], function(registry){
   show = function(dlg,mess){
   	if (dlg=='dlg_photo'){document.getElementById("textNbPhotosEnLigne").innerHTML=mess;}
+  	if (dlg=='dlg_message'){document.getElementById("textMessageWebsocket").innerHTML=mess;}
     registry.byId(dlg).show();
   };
   hide = function(dlg){
