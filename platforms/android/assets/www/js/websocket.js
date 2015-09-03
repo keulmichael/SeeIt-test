@@ -15,10 +15,8 @@ show('dlg_connexion','mess');
        
        case "confirmation photo":
        	if (data.id != sessionStorage.id){
-	
        	    	navigator.vibrate([100, 100, 100, 100, 100]);navigator.notification.beep(1);
-       	       alert("Nouvelle photo prise " + data.lieu);
-       	    
+       	    	show('dlg_nouvelle_photo',data.lieu);
        	}
            break;
            
@@ -27,7 +25,8 @@ show('dlg_connexion','mess');
            break
            
        case "cron":
-             show('dlg_photo',data.messsage);
+      		navigator.vibrate([100, 100, 100, 100, 100]);navigator.notification.beep(1);
+            show('dlg_photo',data.messsage);
            break
            
        case "confirmation ouvrir appareil photo":
