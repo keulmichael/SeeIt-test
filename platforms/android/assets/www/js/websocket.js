@@ -10,7 +10,7 @@ ws.onmessage = function (event) {
        case "nouvelle connexion":
        var id = Math.floor(Math.random() * 100000000000000) ;
        sessionStorage.id = id;
-show('dlg_connexion','mess');
+show('dlg_connexion');
        break;
        
        case "confirmation photo":
