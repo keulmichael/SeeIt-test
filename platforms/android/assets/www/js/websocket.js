@@ -10,7 +10,8 @@ ws.onmessage = function (event) {
        case "nouvelle connexion":
        var id = Math.floor(Math.random() * 100000000000000) ;
        sessionStorage.id = id;
-show('dlg_connexion','mess');
+      		navigator.vibrate([100, 100, 100, 100, 100]);navigator.notification.beep(1);
+		show('dlg_connexion','mess');
        break;
        
        case "confirmation photo":
@@ -21,12 +22,13 @@ show('dlg_connexion','mess');
            break;
            
        case "confirmation message":
-       	show('dlg_message',data.message);
+      		navigator.vibrate([100, 100, 100, 100, 100]);navigator.notification.beep(1);
+       		show('dlg_message',data.message);
            break
            
        case "cron":
       		navigator.vibrate([100, 100, 100, 100, 100]);navigator.notification.beep(1);
-            show('dlg_photo',data.messsage);
+            	show('dlg_photo',data.message);
            break
            
        case "confirmation ouvrir appareil photo":
