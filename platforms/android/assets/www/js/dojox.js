@@ -436,7 +436,8 @@ require([
   show = function(dlg,mess){
   	if (dlg=='dlg_photo'){document.getElementById("textNbPhotosEnLigne").innerHTML=mess;}
   	if (dlg=='dlg_message'){document.getElementById("textMessageWebsocket").innerHTML=mess;}
-    registry.byId(dlg).show();
+  	if (dlg=='dlg_nouvelle_photo'){document.getElementById("textNouvellePhoto").innerHTML=mess;}
+     registry.byId(dlg).show();
   };
   hide = function(dlg){
     registry.byId(dlg).hide();
