@@ -47,7 +47,7 @@ window.onload = function() {initialize();nombrePhotos()};
 <div data-dojo-type="dojox/mobile/Container" style="background-color:#758DA7;" id="containerAccueil">
 <div data-dojo-type="dojox/mobile/PageIndicator" ></div>
 <div data-dojo-type="dojox/mobile/SwapView">
-<img id='icone-seeit.png' src="http://www.appliseeit.com/public/images/icone-seeit.png" style="display: block;margin-left: auto;margin-right: auto" onTouchstart="show('dlg_photo');"/>
+<img id='icone-seeit.png' src="http://www.appliseeit.com/public/images/icone-seeit.png" style="display: block;margin-left: auto;margin-right: auto" onTouchstart="show('dlg_photo','mess');"/>
 </div>
 <div data-dojo-type="dojox/mobile/SwapView">
 <div id='logphotoaccueil_1'></div>
@@ -312,7 +312,7 @@ window.onload = function() {initialize();nombrePhotos()};
 <div id="dlg_photo" data-dojo-type="dojox/mobile/SimpleDialog" data-dojo-props='closeButton:true'>
   <div class="mblSimpleDialogTitle">La photo du jour</div>
 	  <img alt="" src="http://www.appliseeit.com/mobile/photos/1967_46.jpg"  width="200">
-  <div class="mblSimpleDialogText" >dfgfg</div>
+  <div class="mblSimpleDialogText" id="textNbPhotosEnLigne"></div>
 </div>
 
 <script src="http://www.appliseeit.com/mobile/hammer_fonctions.js"></script>
