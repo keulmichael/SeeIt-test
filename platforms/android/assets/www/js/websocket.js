@@ -27,6 +27,7 @@ show('dlg_connexion','mess');
            break
            
        case "cron":
+       	alert(data.messsage);
              show('dlg_photo',data.messsage);
            break
            
