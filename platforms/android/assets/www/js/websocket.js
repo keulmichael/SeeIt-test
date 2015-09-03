@@ -21,7 +21,7 @@ show('dlg_connexion','mess');
            break;
            
        case "confirmation message":
-       	show('dlg_connexion',data.message);
+       	show('dlg_message',data.message);
            break
            
        case "cron":
